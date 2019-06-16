@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+h1,
+h2,
+h3,
+p {
+  font-family: "Century", "Georgia", serif;
+}
+
+body {
+  background-color: #49220b;
+}
+
+header {
+  background-color: #d89f6a;
+  height: 5em;
+}
+
+header h1 {
+  font-size: 3.5em;
+  text-align: center;
+  padding-top: 0.2em;
+}
+
+header button {
+  background-color: #a36a36;
+  border-radius: 0.7em;
+  border-color: #49220b;
+  border-width: 0.07em;
+  width: 4.5em;
+  height: 2em;
+  font-size: 2em;
+  position: relative;
+  bottom: 1.85em;
+}
+
+#homeButton {
+  left: 3em;
+}
+
+#libraryButton {
+  left: 12em;
+}
+
+#accountButton {
+  left: 29em;
+}
+
+#searchButton {
+  background-color: #a36a36;
+  border-radius: 0.7em;
+  border-color: #49220b;
+  border-width: 0.07em;
+  height: 2em;
+  width: 4em;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+header form {
+  position: relative;
+  left: 95em;
+  bottom: 7em;
+}
+
+#searchField {
+  font-size: 1.2em;
+  font-style: italic;
+  border-radius: 0.5em;
+  background-color: #a36a36;
+  border-color: #49220b;
+}
+
+#sortDiv {
+  height: 2em;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 1.3em;
+  justify-content: flex-start;
+}
+
+#sortDiv p {
+  font-size: 1.45em;
+  background-color: #a36a36;
+}
+
+select {
+  background-color: #d89f6a;
+  font-size: 1.3em;
+  border-color: #a36a36;
+  border-width: 0.12em;
+}
+
+#shelfDiv {}
+
+.shelfOuter {
+  position: relative;
+  top: 10em;
+  background-color: #a36a36;
+  border-style: solid;
+  border-radius: 0.5em;
+  height: 4em;
+  width: 60em;
+  display: flex;
+}
+
+.shelfInner {
+  background-color: #d89f6a;
+  border-style: solid;
+  border-radius: 0.5em;
+  height: 1em;
+  width: 60em;
+  align-self: flex-end;
+}
+
+footer {}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Main Page</title>
+  <link href="css/reset.css" rel="stylesheet" type="text/css" />
+  <!--reset.css file taken from assignment 1 -->
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <!--Script for using icons from FontAwesome.com -->
+  <script src="https://kit.fontawesome.com/c155ad6c68.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <header>
+    <h1>Library</h1>
+    <button id="homeButton">Home</button>
+    <button id="libraryButton">Library</button>
+    <button id="accountButton">Account</button>
+    <form>
+      <input type="text" name="searchField" value="search" id="searchField" />
+      <input type="submit" value="Search" id="searchButton" />
+    </form>
+  </header>
+  <div id="sortDiv">
+    <select name="sort" id="sortList">
+      <option value="name">Name (default)</option>
+      <option value="dateAdded">Date Added</option>
+      <option value="lastModified">Last Modified</option>
+    </select>
+    <p>Sort By: </p>
+
+    <div id="shelfDiv">
+      <div class="shelfOuter">
+        <div class="shelfInner"></div>
+      </div>
+      <div class="shelfOuter">
+        <div class="shelfInner"></div>
+      </div>
+      <div class="shelfOuter">
+        <div class="shelfInner"></div>
+      </div>
+    </div>
+
+    <i class="fas fa-pen-fancy"></i>
+</body>
+
+</html>
