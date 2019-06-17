@@ -111,11 +111,12 @@ select {
   background-color: #a36a36;
   border-style: solid;
   border-radius: 0.5em;
-  height: 4em;
+  height: 12.5em;
   width: 60em;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-end;
 }
 
 .shelfInner {
@@ -124,7 +125,6 @@ select {
   border-radius: 0.5em;
   height: 1em;
   width: 60em;
-  align-self: flex-end;
 }
 
 footer {}
