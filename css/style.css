@@ -46,6 +46,14 @@ button{
   font-size: 2em;
 }
 
+#forgotpassword{
+  width:auto;
+  font-size:1em;
+  color:blue;
+  text-decoration:underline;
+  margin:1em;
+}
+
 header {
   background-color: #d89f6a;
   height: 5em;
