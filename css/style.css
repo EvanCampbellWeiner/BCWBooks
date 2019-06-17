@@ -14,9 +14,14 @@ body {
 header {
   background-color: #d89f6a;
   height: 5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 header h1 {
+  order: 3;
   font-size: 3.5em;
   text-align: center;
   padding-top: 0.2em;
@@ -30,20 +35,23 @@ header button {
   width: 4.5em;
   height: 2em;
   font-size: 2em;
-  position: relative;
-  bottom: 1.85em;
+  /*  position: relative;
+  bottom: 1.85em; */
 }
 
 #homeButton {
-  left: 3em;
+  order: 1;
+  /*  left: 3em; */
 }
 
 #libraryButton {
-  left: 12em;
+  order: 2;
+  /*  left: 12em; */
 }
 
 #accountButton {
-  left: 29em;
+  order: 4;
+  /*  left: 29em; */
 }
 
 #searchButton {
@@ -58,9 +66,7 @@ header button {
 }
 
 header form {
-  position: relative;
-  left: 95em;
-  bottom: 7em;
+  order: 5;
 }
 
 #searchField {
@@ -91,17 +97,25 @@ select {
   border-width: 0.12em;
 }
 
-#shelfDiv {}
+#shelfDiv {
+  padding-top: 5em;
+  height: 40em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
 .shelfOuter {
-  position: relative;
-  top: 10em;
+  /*position: relative;
+  top: 10em; */
   background-color: #a36a36;
   border-style: solid;
   border-radius: 0.5em;
   height: 4em;
   width: 60em;
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .shelfInner {
