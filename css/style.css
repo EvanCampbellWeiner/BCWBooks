@@ -150,6 +150,7 @@ select {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items:center;
 }
 
 .shelfOuter {
@@ -176,6 +177,17 @@ select {
 
 #shelfDiv nav {
   align-self: flex-end;
+}
+ul{
+  display:inline-block;
+}
+.pretendBookGreen{
+  height:30em;
+  width:5em;
+  margin:1em;
+  background-color:green;
+  border:0.2em solid black;
+
 }
 
 nav a {
