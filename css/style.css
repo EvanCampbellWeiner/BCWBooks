@@ -3,7 +3,7 @@
 h1,
 h2,
 h3,
-p {
+p, nav {
   font-family: "Century", "Georgia", serif;
 }
 
@@ -125,6 +125,21 @@ select {
   border-radius: 0.5em;
   height: 1em;
   width: 60em;
+}
+
+#shelfDiv nav {
+  align-self: flex-end;
+}
+
+nav a {
+  padding: 0.05em;
+  text-decoration: none;
+  color: cyan;
+  border-style: solid;
+  border-width: 0.1em;
+  border-radius: 0.3em;
+  border-color: black;
+  background-color: #a36a36;
 }
 
 footer {}
