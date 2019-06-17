@@ -9,6 +9,41 @@ p, nav {
 
 body {
   background-color: #49220b;
+    font-family: "Century", "Georgia", serif;
+}
+
+main form{
+  border: 0.2em solid black;
+  display:flex;
+  margin:5em;
+  padding:2em;
+  flex-direction:column;
+  margin-right:15em;
+  justify-content:space-around;
+  background-color:#d89f6a;
+  align-items:center;
+
+}
+
+form div{
+  padding: 1em;
+  margin: 1em;
+  width: 10em;
+  font-size:1em;
+  border: 0.2em solid black;
+  justify-content:center;
+  align-items:center;
+  background-color:#a36a36;
+}
+
+button{
+  background-color: #a36a36;
+  border-radius: 0.7em;
+  border-color: #49220b;
+  border-width: 0.07em;
+  width: 4.5em;
+  height: 2em;
+  font-size: 2em;
 }
 
 header {
