@@ -9,38 +9,37 @@ p, nav {
 
 body {
   background-color: #49220b;
-    font-family: "Century", "Georgia", serif;
+  font-family: "Century", "Georgia", serif;
 }
 
-main form{
+main form {
   border: 0.2em solid black;
-  display:flex;
-  margin:5em;
-  padding:2em;
-  flex-direction:column;
-  margin-right:15em;
-  justify-content:space-around;
-  background-color:#d89f6a;
-  align-items:center;
-
+  display: flex;
+  margin: 5em;
+  padding: 2em;
+  flex-direction: column;
+  margin-right: 15em;
+  justify-content: space-around;
+  background-color: #d89f6a;
+  align-items: center;
 }
 
-form div{
+form div {
   padding: 1em;
   margin: 1em;
   width: 10em;
-  font-size:1em;
+  font-size: 1em;
   border: 0.2em solid black;
-  justify-content:center;
-  align-items:center;
-  background-color:#a36a36;
+  justify-content: center;
+  align-items: center;
+  background-color: #a36a36;
 }
 
-form button{
-  margin:0.5em;
+form button {
+  margin: 0.5em;
 }
 
-button{
+button {
   background-color: #a36a36;
   border-radius: 0.7em;
   border-color: #49220b;
@@ -48,17 +47,19 @@ button{
   width: 4.5em;
   height: 2em;
   font-size: 2em;
+  font-family: "Century", "Georgia", serif;
 }
 
-#forgotpassword{
-  width:auto;
-  font-size:1em;
-  color:blue;
-  text-decoration:underline;
-  margin:1em;
+#forgotpassword {
+  width: auto;
+  font-size: 1em;
+  color: blue;
+  text-decoration: underline;
+  margin: 1em;
 }
 
 header {
+  padding-left: 7em;
   background-color: #d89f6a;
   height: 5em;
   display: flex;
@@ -74,21 +75,24 @@ header h1 {
   padding-top: 0.2em;
 }
 
-header button {
+header a {
   background-color: #a36a36;
   border-radius: 0.7em;
   border-color: #49220b;
+  border-style: solid;
   border-width: 0.07em;
   width: 4.5em;
   height: 2em;
   font-size: 2em;
-  /*  position: relative;
-  bottom: 1.85em; */
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  padding-top: 0.3em;
+  font-family: "Century", "Georgia", serif;
 }
 
 #homeButton {
   order: 1;
-  /*  left: 3em; */
 }
 
 #libraryButton {
@@ -110,6 +114,7 @@ header button {
   width: 4em;
   font-size: 1.5em;
   text-align: center;
+  font-family: "Century", "Georgia", serif;
 }
 
 header form {
@@ -124,7 +129,7 @@ header form {
   border-color: #49220b;
 }
 
-#sortDiv {
+#bodyDiv {
   height: 2em;
   display: flex;
   flex-direction: row-reverse;
@@ -132,7 +137,7 @@ header form {
   justify-content: flex-start;
 }
 
-#sortDiv p {
+#bodyDiv p {
   font-size: 1.45em;
   background-color: #a36a36;
 }
@@ -150,7 +155,7 @@ select {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items:center;
+  align-items: center;
 }
 
 .shelfOuter {
@@ -177,28 +182,73 @@ select {
 
 #shelfDiv nav {
   align-self: flex-end;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
 }
-ul{
-  display:inline-block;
-}
-.pretendBookGreen{
-  height:30em;
-  width:5em;
-  margin:1em;
-  background-color:green;
-  border:0.2em solid black;
 
+#addBook {
+  align-self: flex-end;
+  margin-right: 47em;
+}
+
+ul {
+  display: inline-block;
+}
+
+.pretendBookGreen {
+  height: 30em;
+  width: 5em;
+  margin: 1em;
+  background-color: green;
+  border: 0.2em solid black;
 }
 
 nav a {
   padding: 0.05em;
   text-decoration: none;
-  color: cyan;
+  color: black;
   border-style: solid;
   border-width: 0.1em;
   border-radius: 0.3em;
   border-color: black;
   background-color: #a36a36;
+}
+
+.displayBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 55em;
+  width: 42%;
+  background-color: #d89f6a;
+  margin: auto;
+}
+
+#displayBoxInner {
+  display: flex;
+}
+
+#displayBoxInner button {
+  background-color: maroon;
+  font-weight: bold;
+}
+
+.displayBox a {
+  background-color: #a36a36;
+  border-radius: 0.7em;
+  border-color: #49220b;
+  border-style: solid;
+  border-width: 0.07em;
+  width: 4.5em;
+  height: 2em;
+  font-size: 2em;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  padding-top: 0.3em;
+  font-family: "Century", "Georgia", serif;
 }
 
 footer {}

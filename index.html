@@ -15,15 +15,18 @@
 <body>
   <header>
     <h1>Library</h1>
-    <button id="homeButton">Home</button>
-    <button id="libraryButton">Library</button>
-    <button id="accountButton">Account</button>
-    <form>
+
+    <!--  <button id="homeButton">Home</button> -->
+    <a href="home.html" id="homeButton">Home</a>
+    <a href="" id="libraryButton">Library</a>
+    <a href="account.html" id="accountButton">Account</a>
+
+    <form id="searchForm">
       <input type="text" name="searchField" value="search" id="searchField" />
       <input type="submit" value="Search" id="searchButton" />
     </form>
   </header>
-  <div id="sortDiv">
+  <div id="bodyDiv">
     <select name="sort" id="sortList">
       <option value="name">Name (default)</option>
       <option value="dateAdded">Date Added</option>
@@ -31,10 +34,12 @@
     </select>
     <p>Sort By: </p>
 
-    <!-- missing closing div -->
+
     <div id="shelfDiv">
       <div class="shelfOuter">
-        <img src="images/Set For Life 2.jpg" alt="sample book cover" height="240" width="140" />
+        <a href="">
+          <img src="images/SetForLife2.jpg" alt="sample book cover" height="240" width="140" />
+        </a>
         <div class="shelfInner"></div>
       </div>
       <div class="shelfOuter" id="shelfOuter2">
@@ -44,12 +49,16 @@
         <div class="shelfInner"></div>
       </div>
       <nav id="shelfNav">
+        <!-- Add icon sourced from https://icons8.com/icons/set/plus -->
+        <a href="addBook.html" id="addBook"><img src="images/plus-icon.png" alt="Add book icon" height="30" width="30"></a>
         <a href="">first</a>
         <a href="">next</a>
         <a href="">previous</a>
         <a href="">last</a>
+
       </nav>
     </div>
+  </div>
 
 
 
