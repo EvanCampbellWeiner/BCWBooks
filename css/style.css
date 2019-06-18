@@ -11,9 +11,15 @@ body {
   background-color: #49220b;
   font-family: "Century", "Georgia", serif;
 }
-
-
 main{
+  background-color:#d89f6a;
+  padding:1em;
+  margin:1em;
+  margin-left:20em;
+  width:40em;
+}
+
+#content main{
   background-color:#d89f6a;
   padding:1em;
   width:40em;
@@ -38,7 +44,6 @@ main form{
   margin: 5em;
   padding: 2em;
   flex-direction: column;
-  margin-right: 15em;
   justify-content: space-around;
   background-color: #d89f6a;
   align-items: center;
@@ -160,6 +165,7 @@ header form {
   flex-direction: row-reverse;
   font-size: 1.3em;
   justify-content: flex-start;
+  margin:1em;
 }
 
 #bodyDiv p {
