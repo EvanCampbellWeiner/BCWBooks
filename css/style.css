@@ -12,7 +12,27 @@ body {
   font-family: "Century", "Georgia", serif;
 }
 
-main form {
+
+main{
+  background-color:#d89f6a;
+  padding:1em;
+  width:40em;
+}
+
+aside{
+  margin:2em;
+  border-left:1em black solid;
+  padding-left:5em;
+}
+
+#content{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+}
+
+main form{
   border: 0.2em solid black;
   display: flex;
   margin: 5em;
@@ -107,7 +127,9 @@ header a {
   order: 4;
   /*  left: 29em; */
 }
-
+#loginButton{
+  order:6;
+}
 #searchButton {
   background-color: #a36a36;
   border-radius: 0.7em;
@@ -366,4 +388,10 @@ nav a {
   background-color: #a36a36;
 }
 
+h2{
+  font-size:8em;
+}
+h3{
+  font-size:3em;
+}
 footer {}

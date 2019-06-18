@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Main Page</title>
+    <title>BCW Books</title>
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <!-- reset.css file taken from assignment 1 -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -13,34 +13,20 @@
 
   <body>
     <header>
-      <h1>Library</h1>
       <button id="homeButton">Home</button>
+      <h1>BCW Books</h1>
       <button id="libraryButton">Library</button>
       <button id="accountButton">Account</button>
-      <form>
-        <input type="text" name="searchField" value="search" id="searchField" />
-        <input type="submit" value="Search" id="searchButton" />
-      </form>
+      <button id="loginButton">Login</button>
     </header>
-    <div id="sortDiv">
-      <select name="sort" id="sortList">
-        <option value="name">Name (default)</option>
-        <option value="dateAdded">Date Added</option>
-        <option value="lastModified">Last Modified</option>
-      </select>
-    <p>Sort By:</p>
-  <!-- missing closing div -->
-    <div id="shelfDiv">
-      <div class="shelfOuter">
-        <div class="shelfInner"></div>
-      </div>
-      <div class="shelfOuter" id="shelfOuter2">
-        Welcome to BCW Books
-        <div class="shelfInner"></div>
-      </div>
-      <div class="shelfOuter">
-        <div class="shelfInner"></div>
-      </div>
-
+<div id="content">
+    <main>
+    <h2>Welcome!</h2>
+    <h3>BCW Books: The only place to book your books.</h3>
+    </main>
+  <aside>
+    <img src="images/SetForLife2.jpg" alt="sample book cover" width=300 />
+    </aside>
+</div>
   </body>
 </html>
