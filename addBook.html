@@ -13,7 +13,46 @@
 </head>
 
 <body>
+  <header class="fullHeader" id="addBookHeader">
+    <h1>Add Book</h1>
 
+    <a href="home.html" id="homeButton">Home</a>
+    <a href="index.html" id="libraryButton">Library</a>
+    <a href="account.html" id="accountButton">Account</a>
+
+    <form id="searchForm">
+      <input type="text" name="searchField" value="search" id="searchField" />
+      <input type="submit" value="Search" id="searchButton" />
+    </form>
+  </header>
+
+  <div class="displayBox" id="addBookDisplayBox">
+    <form class="enclosedForm" id="uploadForm">
+      <div class="addBookFormDiv">
+        <label for="ebookToUpload" class="addBookLabel">Upload Ebook File(.mobi, .epub, .pdf)</label>
+        <input type="file" name="ebookToUpload" id="ebookToUpload">
+      </div>
+      <div class="addBookFormDiv">
+        <label for="ebookCover" class="addBookLabel">Upload Ebook Cover(.jpg, .png)</label>
+        <input type="file" name="ebookCover" id="ebookCover">
+      </div>
+      <div class="addBookFormDiv">
+        <label for="bookTitle" class="addBookLabel">Title: </label>
+        <input type="text" placeholder="Title" name="bookTitle" id="bookTitle">
+      </div>
+      <div class="addBookFormDiv">
+        <label for="bookAuthor" class="addBookLabel">Author: </label>
+        <input type="text" placeholder="Author Name" name="bookAuthor" id="bookAuthor">
+      </div>
+      <div class="addBookFormDiv" id="addBookFormTextareaDiv">
+        <label class="addBookLabel">Description: </label>
+        <textarea rows="10" cols="100"> </textarea>
+      </div>
+      <div class="addBookFormDiv">
+        <input type="submit" value="Add Ebook" name="addBook">
+      </div>
+    </form>
+  </div>
 </body>
 
 </html>

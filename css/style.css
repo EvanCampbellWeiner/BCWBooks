@@ -59,13 +59,16 @@ button {
 }
 
 header {
-  padding-left: 7em;
   background-color: #d89f6a;
   height: 5em;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.fullHeader {
+  padding-left: 7em;
 }
 
 header h1 {
@@ -224,6 +227,82 @@ nav a {
   width: 42%;
   background-color: #d89f6a;
   margin: auto;
+}
+
+#addBookDisplayBox {
+  height: 60em;
+  width: 50%;
+  justify-content: space-around;
+}
+
+#addBookDisplayBox input[type=submit] {
+  background-color: #d89f6a;
+  border-radius: 0.7em;
+  border-color: #49220b;
+  border-style: solid;
+  border-width: 0.07em;
+  width: 8em;
+  height: 2em;
+  font-size: 0.75em;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  padding-top: 0.3em;
+  font-family: "Century", "Georgia", serif;
+}
+
+#addBookDisplayBox input[type=text] {
+  background-color: #d89f6a;
+  color: black;
+}
+
+.addBookLabel {
+  width: 8em;
+  height: 2em;
+  font-size: 0.9em;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  padding-top: 0.3em;
+  font-family: "Century", "Georgia", serif;
+}
+
+.enclosedForm {
+  background-color: #a36a36;
+  border-radius: 0.7em;
+  border-color: #49220b;
+  border-style: solid;
+  border-width: 0.07em;
+  width: 50em;
+  height: 55em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.addBookFormDiv {
+  padding: 0em;
+  margin: 0em;
+  width: 10em;
+  font-size: 1.3em;
+  border-style: none;
+  text-align: center;
+}
+
+#addBookFormTextareaDiv {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+#addBookFormTextareaDiv textarea {
+  background-color: #d89f6a;
+  color: black;
+}
+
+#uploadForm {
+  padding: 0.5em;
 }
 
 #displayBoxInner {
