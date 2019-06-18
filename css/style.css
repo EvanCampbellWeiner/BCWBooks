@@ -251,6 +251,21 @@ nav a {
   font-family: "Century", "Georgia", serif;
 }
 
+#addBookDisplayBox h2 {
+  font-family: "Century", "Georgia", serif;
+  font-size: 3.5em;
+}
+
+#addBookDisplayBox h3 {
+  font-family: "Century", "Georgia", serif;
+  font-size: 2em;
+}
+
+#addBookDisplayBox p {
+  font-family: "Century", "Georgia", serif;
+  font-size: 1em;
+}
+
 #addBookDisplayBox input[type=text] {
   background-color: #d89f6a;
   color: black;
@@ -328,6 +343,27 @@ nav a {
   color: black;
   padding-top: 0.3em;
   font-family: "Century", "Georgia", serif;
+}
+
+#iconDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#iconDiv a {
+  padding: 0em;
+  padding-top: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  text-decoration: none;
+  color: black;
+  border-style: solid;
+  border-width: 0.1em;
+  border-radius: 0.3em;
+  border-color: black;
+  background-color: #a36a36;
 }
 
 footer {}
