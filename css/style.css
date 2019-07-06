@@ -119,11 +119,11 @@ header a {
   font-family: "Century", "Georgia", serif;
 }
 
-#homeButton {
+#indexButton {
   order: 1;
 }
 
-#libraryButton {
+#bookShelfButton {
   order: 2;
   /*  left: 12em; */
 }
