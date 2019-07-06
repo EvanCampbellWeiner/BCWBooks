@@ -220,8 +220,6 @@ select {
 }
 
 #addBook {
-  align-self: flex-end;
-  margin-right: 47em;
 }
 
 ul {
