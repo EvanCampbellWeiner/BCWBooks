@@ -1,5 +1,5 @@
-<!--
-  Page Name: addBook.html
+<?php
+/*  Page Name: addBook.php
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP
   Page Description:
@@ -10,7 +10,8 @@
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
--->
+  */
+?>
 
 <!DOCTYPE html>
 <html lang="en">

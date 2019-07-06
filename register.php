@@ -1,4 +1,5 @@
-<!--
+<?php
+/*
   Page Name: register.html
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP
@@ -10,7 +11,8 @@
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
--->
+  */
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
