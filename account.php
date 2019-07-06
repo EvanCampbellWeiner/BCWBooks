@@ -1,6 +1,3 @@
-<?php session_start();
-include "includes/library.php";
-$pdo=connectdb();?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

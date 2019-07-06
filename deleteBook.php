@@ -1,6 +1,4 @@
-<?php session_start();
-include "includes/library.php";
-$pdo=connectdb();?><!--
+<!--
   Page Name: deleteBook.html
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP
