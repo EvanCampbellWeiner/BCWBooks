@@ -12,7 +12,27 @@
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
+  bcwBooks_users
   */
+
+  session_start();
+  $pdo = connectdb();
+//Needs validation
+  if($_POST['email'].isset())
+    {
+      //hash password
+      //check if username / password is in database.
+      //if it is, set session variables to it.
+      //then redirect to library.
+      //if it is not, then add to error and display element
+      $email = $_POST['email'];
+      $psw = $_POST['password'];
+      $sql = "select * from bcwBooks_users where (username_email =? ) && (password = ?)";
+      $statement = $pdo -> prepare($sql);
+      $statement -> execute([$email, $psw]);
+      if()
+
+    }
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +56,7 @@
       <a href="login.php" id="loginButton">Login</a>
     </header>
     <main>
-      <form id="register" action="register.php" method="post">
+      <form id="login" action="login.php" method="post">
         <div>
           <label for="email">Email:</label>
           <input
@@ -44,6 +64,7 @@
             name="email"
             id="email"
             placeholder="john@smith.com"
+            required
           />
         </div>
         <div>
