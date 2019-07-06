@@ -1,5 +1,5 @@
 <!--
-  Page Name: deleteBook.html
+  Page Name: deleteBook.php
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP
   Page Description:
@@ -27,10 +27,9 @@
   <body>
     <header class="fullHeader">
       <h1>Delete Book</h1>
-
-      <a href="home.html" id="homeButton">Home</a>
-      <a href="index.html" id="libraryButton">Library</a>
-      <a href="account.html" id="accountButton">Account</a>
+      <a href="index.php" id="homeButton">Home</a>
+      <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
+      <a href="account.php" id="accountButton">Account</a>
 
       <form id="searchForm">
         <input type="text" name="searchField" value="Search" id="searchField" />

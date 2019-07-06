@@ -15,10 +15,10 @@
     <header class="fullHeader">
       <h1>Account</h1>
 
-      <a href="home.html" id="homeButton">Home</a>
-      <a href="index.html" id="libraryButton">Library</a>
-      <a href="register.html" id="accountButton">Register</a>
-      <a href="login.html" id="loginButton">Login</a>
+      <a href="index.php" id="homeButton">Home</a>
+      <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
+      <a href="register.php" id="accountButton">Register</a>
+      <a href="login.php" id="loginButton">Login</a>
     </header>
     <main>
       <form id="updateAccount" action="updateAccount.php" method="post">

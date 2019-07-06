@@ -27,10 +27,9 @@
   <body>
     <header class="fullHeader" id="addBookHeader">
       <h1>Book Info</h1>
-
-      <a href="home.html" id="homeButton">Home</a>
-      <a href="index.html" id="libraryButton">Library</a>
-      <a href="account.html" id="accountButton">Account</a>
+      <a href="index.php" id="homeButton">Home</a>
+      <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
+      <a href="account.php" id="accountButton">Account</a>
 
       <form id="searchForm">
         <input type="text" name="searchField" value="Search" id="searchField" />
