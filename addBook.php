@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <?php
 /*  Page Name: addBook.php
+=======
+<?php/*
+  Page Name: addBook.hml
+>>>>>>> branch1
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP
   Page Description:
@@ -9,9 +14,24 @@
 
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
+<<<<<<< HEAD
   style.css: overarcing css file
   */
 ?>
+=======
+  style.css: overarcing css file */
+  session_start();
+ include "includes/library.php";
+ $pdo=connectdb();
+ if (isset($_POST['addBook'])) {
+   $stmt = $pdo->prepare("INSERT INTO bcwBooks_bookData(title, tags, author, description, publication_date) VALUES ('$_POST['bookTitle']', '$_POST['bookTags']', '$_POST['bookAuthor']', '$_POST['bookDe']', '$_POST['bookDescription']')");
+   $stmt->execute();
+ }
+
+  ?>
+
+
+>>>>>>> branch1
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +60,7 @@
     </header>
 
     <div class="displayBox" id="addBookDisplayBox">
-      <form class="enclosedForm" id="uploadForm">
+      <form class="enclosedForm" id="uploadForm" action = "<?php echo $_SERVER['PHP_SELF'];?>" method = "post">
         <div class="addBookFormDiv">
           <label for="ebookToUpload" class="addBookLabel"
             >Upload Ebook File(.mobi, .epub, .pdf)</label
@@ -73,10 +93,28 @@
         </div>
         <div class="addBookFormDiv" id="addBookFormTextareaDiv">
           <label class="addBookLabel">Description: </label>
-          <textarea rows="10" cols="100"> </textarea>
+          <textarea name="bookDescription"  rows="10" cols="100"> </textarea>
         </div>
         <div class="addBookFormDiv">
-          <input type="submit" value="Add Ebook" name="addBook" />
+          <label for="bookTags" class="addBookLabel">Tags: </label>
+          <input
+            type="text"
+            placeholder="Tag1, Tag2, Tag3..."
+            name="bookTags"
+            id="bookTags"
+          />
+        </div>
+        <div class="addBookFormDiv">
+          <label for="bookPublicationDate" class="addBookLabel">Publication Date: </label>
+          <input
+            type="date"
+            value="2019-07-06"
+            name="bookPublicationDate"
+            id="bookPublicationDate"
+          />
+        </div>
+        <div class="addBookFormDiv">
+          <input type="submit" name="addBook" />
         </div>
       </form>
     </div>
