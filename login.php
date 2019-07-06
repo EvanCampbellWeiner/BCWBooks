@@ -1,4 +1,6 @@
-<!--
+<?php session_start();
+include "includes/library.php";
+$pdo=connectdb();?><!--
   Page Name: login.html
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP

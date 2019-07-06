@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php session_start();
+include "includes/library.php";
+$pdo=connectdb();?><!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Login</title>
