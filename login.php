@@ -1,22 +1,21 @@
 <!--
-  Page Name: home.html
+  Page Name: login.html
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
-  Language: HTML5 and PHP 
+  Language: HTML5 and PHP
   Page Description:
-  The home page for the website.
-  It has links to itself, the library page, the register and login page.
+  A login page that allows a user to enter their username and Password
+  as well as a remember me link.
 
 
 
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
-
 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>BCW Books</title>
+    <title>Login</title>
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <!-- reset.css file taken from assignment 1 -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -28,21 +27,38 @@
 
   <body>
     <header class="fullHeader">
-      <h1>Library</h1>
+      <h1>Login</h1>
 
       <a href="home.html" id="homeButton">Home</a>
       <a href="index.html" id="libraryButton">Library</a>
       <a href="register.html" id="accountButton">Register</a>
       <a href="login.html" id="loginButton">Login</a>
     </header>
-<div id="content">
     <main>
-    <h2>Welcome!</h2>
-    <h3>BCW Books: The only place to book your books.</h3>
+      <form id="register" action="register.php" method="post">
+        <div>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="john@smith.com"
+          />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="************"
+            required
+          />
+        </div>
+        <button>Register</button>
+
+        <button id="forgotpassword">Forgot password?</button>
+      </form>
     </main>
-  <aside>
-    <img src="images/SetForLife2.jpg" alt="sample book cover" width=300 />
-    </aside>
-</div>
   </body>
 </html>

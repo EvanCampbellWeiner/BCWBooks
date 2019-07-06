@@ -11,7 +11,6 @@
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
-
 -->
 
 <!DOCTYPE html>
@@ -50,7 +49,7 @@
 
       <div id="shelfDiv">
         <div class="shelfOuter">
-          <a href="viewInfo.html">
+          <a href="">
             <img
               src="images/SetForLife2.jpg"
               alt="sample book cover"

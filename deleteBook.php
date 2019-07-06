@@ -1,22 +1,20 @@
 <!--
-  Page Name: home.html
+  Page Name: deleteBook.html
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
-  Language: HTML5 and PHP 
+  Language: HTML5 and PHP
   Page Description:
-  The home page for the website.
-  It has links to itself, the library page, the register and login page.
+  deleteBook deletes a particular book.
 
 
 
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
-
 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>BCW Books</title>
+    <title>Delete Book</title>
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <!-- reset.css file taken from assignment 1 -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -28,21 +26,32 @@
 
   <body>
     <header class="fullHeader">
-      <h1>Library</h1>
+      <h1>Delete Book</h1>
 
       <a href="home.html" id="homeButton">Home</a>
       <a href="index.html" id="libraryButton">Library</a>
-      <a href="register.html" id="accountButton">Register</a>
-      <a href="login.html" id="loginButton">Login</a>
+      <a href="account.html" id="accountButton">Account</a>
+
+      <form id="searchForm">
+        <input type="text" name="searchField" value="Search" id="searchField" />
+        <input type="submit" value="Search" id="searchButton" />
+      </form>
     </header>
-<div id="content">
-    <main>
-    <h2>Welcome!</h2>
-    <h3>BCW Books: The only place to book your books.</h3>
-    </main>
-  <aside>
-    <img src="images/SetForLife2.jpg" alt="sample book cover" width=300 />
-    </aside>
-</div>
+    <div class="displayBox">
+      <img
+        src="images/SetForLife2.jpg"
+        alt="sample book cover"
+        height="640"
+        width="400"
+      />
+      <a href="">Cancel</a>
+      <div id="displayBoxInner">
+        <form>
+          <button type="button">Delete</button>
+          <input type="checkbox" name="deleteConfirm" value="deleteConfirm" />
+          Yes, I want to delete this book<br />
+        </form>
+      </div>
+    </div>
   </body>
 </html>

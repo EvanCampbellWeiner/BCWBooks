@@ -1,7 +1,7 @@
 <!--
   Page Name: home.html
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
-  Language: HTML5 and PHP 
+  Language: HTML5 and PHP
   Page Description:
   The home page for the website.
   It has links to itself, the library page, the register and login page.
@@ -11,7 +11,6 @@
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
-
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -35,14 +34,14 @@
       <a href="register.html" id="accountButton">Register</a>
       <a href="login.html" id="loginButton">Login</a>
     </header>
-<div id="content">
-    <main>
-    <h2>Welcome!</h2>
-    <h3>BCW Books: The only place to book your books.</h3>
-    </main>
-  <aside>
-    <img src="images/SetForLife2.jpg" alt="sample book cover" width=300 />
-    </aside>
-</div>
+    <div id="content">
+      <main>
+        <h2>Welcome!</h2>
+        <h3>BCW Books: The only place to book your books.</h3>
+      </main>
+      <aside>
+        <img src="images/SetForLife2.jpg" alt="sample book cover" width="300" />
+      </aside>
+    </div>
   </body>
 </html>
