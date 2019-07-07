@@ -14,23 +14,30 @@
   style.css: overarcing css file
   bcwBooks_users
   */
-
+  include "includes/library.php";
   session_start();
   $pdo = connectdb();
 //Needs validation
-  if($_POST['email'].isset())
+  if(isset($_POST['submit']))
     {
       //hash password
       //check if username / password is in database.
       //if it is, set session variables to it.
       //then redirect to library.
       //if it is not, then add to error and display element
+      //sanitizing email
+      $_POST['email'] = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
       $email = $_POST['email'];
-      $psw = $_POST['password'];
+      $psw = password_hash($_POST['password']);
       $sql = "select * from bcwBooks_users where (username_email =? ) && (password = ?)";
       $statement = $pdo -> prepare($sql);
       $statement -> execute([$email, $psw]);
-      if()
+      if(isset($statement)){
+        $_SESSION['user'] = $_POST['user'];
+      }
+      else{
+        $errors = "Incorrect Password";
+      }
 
     }
   ?>
@@ -78,9 +85,8 @@
           />
         </div>
         <button>Register</button>
-
-        <button id="forgotpassword">Forgot password?</button>
       </form>
+      <a href="passwordreset.php" >Forgot password?</a>
     </main>
   </body>
 </html>

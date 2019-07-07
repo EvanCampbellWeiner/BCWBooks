@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 <?php
 /*  Page Name: addBook.php
-=======
-<?php/*
-  Page Name: addBook.hml
->>>>>>> branch1
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP
   Page Description:
@@ -14,12 +9,8 @@
 
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
-<<<<<<< HEAD
   style.css: overarcing css file
-  */
-?>
-=======
-  style.css: overarcing css file */
+*/
   session_start();
  include "includes/library.php";
  $pdo=connectdb();
