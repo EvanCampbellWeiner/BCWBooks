@@ -13,12 +13,24 @@
 */
   session_start();
  include "includes/library.php";
+ $realImageFlag =1;
+ $errors = array();
+
  $pdo=connectdb();
  if (isset($_POST['addBook'])) {
+   $check = getimagesize($_FILES["ebookToUpload"]["tmp_name"]);
+if($check !== false) {
+    $realImageFlag = 1;
+} else {
+    $realImageFlag = 0;
+}
+
+if($realImageFlag == 1){
    $sql = "INSERT INTO bcwBooks_bookData(filename, cover_filename, title, tags, author, description, publication_date, user) VALUES (?,?,?,?,?,?,?,?)";
    $stmt = $pdo->prepare($sql);
-   //$stmt->execute('$_POST["bookTitle"]', '$_POST["bookTags"]', '$_POST["bookAuthor"]', '$_POST["bookDe"]', '$_POST["bookDescription"]');
+   //$stmt->execute('$_FILE["ebookToUpload"]','$_FILE["ebookCover"]','$_POST["bookTitle"]', '$_POST["bookTags"]', '$_POST["bookAuthor"]', '$_POST["bookDe"]', '$_POST["bookDescription"]', '$_SESSION['user']');
     $stmt->execute(['testFileName','testCoverFileName','testTitle','TestTags','testAuthor','testDescription','2019-07-06','testUser']);
+  }
  }
 
   ?>
@@ -52,7 +64,7 @@
     </header>
 
     <div class="displayBox" id="addBookDisplayBox">
-      <form class="enclosedForm" id="uploadForm" action = "<?php echo $_SERVER['PHP_SELF'];?>" method = "post">
+      <form enctype="multipart/form-data" class="enclosedForm" id="uploadForm" action = "<?php echo $_SERVER['PHP_SELF'];?>" method = "post">
         <div class="addBookFormDiv">
           <label for="ebookToUpload" class="addBookLabel"
             >Upload Ebook File(.mobi, .epub, .pdf)</label
