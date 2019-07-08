@@ -4,6 +4,7 @@
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP
   Page Description:
+  Allows the user to register an account, using their email and a password.
 
 
 
@@ -12,6 +13,8 @@
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
   */
+
+  if($_POST[''])
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +46,7 @@
             name="email"
             id="email"
             placeholder="john@smith.com"
+            required
           />
         </div>
         <div>
@@ -66,7 +70,7 @@
             required
           />
         </div>
-        <button type="submit" name="register">Register</button>
+        <input type="submit" name="register">Register</input>
       </form>
     </main>
   </body>
