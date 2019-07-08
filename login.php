@@ -28,11 +28,12 @@
       //sanitizing email
       $_POST['email'] = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
       $email = $_POST['email'];
-      $psw = password_hash($_POST['password']);
-      $sql = "select * from bcwBooks_users where (username_email =? ) && (password = ?)";
+      $psw = $_POST['password'];
+      $sql = "select * from bcwBooks_users where username_email =?";
       $statement = $pdo -> prepare($sql);
       $statement -> execute([$email, $psw]);
-      if(isset($statement)){
+      $result = $statement->fetch();
+      if($result && password_verify($psw, $result['password'])) {
         $_SESSION['user'] = $_POST['user'];
       }
       else{
@@ -57,7 +58,7 @@
   <body>
     <header class="fullHeader">
       <h1>Login</h1>
-      <a href="index.php" id="homeButton">Home</a>
+      <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="register.php" id="accountButton">Register</a>
       <a href="login.php" id="loginButton">Login</a>
@@ -84,7 +85,12 @@
             required
           />
         </div>
-        <button>Register</button>
+        <input type="submit" name="submit" value="Login"/>
+        <?php
+          if(isset($errors)):
+            ?>
+          <span class="errors"> <?php  echo $errors; ?> </span>
+     <?php endif; ?>
       </form>
       <a href="passwordreset.php" >Forgot password?</a>
     </main>

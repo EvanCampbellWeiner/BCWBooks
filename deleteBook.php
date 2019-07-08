@@ -28,7 +28,7 @@
   <body>
     <header class="fullHeader">
       <h1>Delete Book</h1>
-      <a href="index.php" id="homeButton">Home</a>
+      <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="account.php" id="accountButton">Account</a>
 
