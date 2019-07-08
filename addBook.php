@@ -9,7 +9,8 @@
 
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
-  style.css: overarcing css file */
+  style.css: overarcing css file
+*/
   session_start();
  include "includes/library.php";
  $pdo=connectdb();

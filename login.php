@@ -12,7 +12,34 @@
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
+  bcwBooks_users
   */
+  include "includes/library.php";
+  session_start();
+  $pdo = connectdb();
+//Needs validation
+  if(isset($_POST['submit']))
+    {
+      //hash password
+      //check if username / password is in database.
+      //if it is, set session variables to it.
+      //then redirect to library.
+      //if it is not, then add to error and display element
+      //sanitizing email
+      $_POST['email'] = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+      $email = $_POST['email'];
+      $psw = password_hash($_POST['password']);
+      $sql = "select * from bcwBooks_users where (username_email =? ) && (password = ?)";
+      $statement = $pdo -> prepare($sql);
+      $statement -> execute([$email, $psw]);
+      if(isset($statement)){
+        $_SESSION['user'] = $_POST['user'];
+      }
+      else{
+        $errors = "Incorrect Password";
+      }
+
+    }
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +63,7 @@
       <a href="login.php" id="loginButton">Login</a>
     </header>
     <main>
-      <form id="register" action="register.php" method="post">
+      <form id="login" action="login.php" method="post">
         <div>
           <label for="email">Email:</label>
           <input
@@ -44,6 +71,7 @@
             name="email"
             id="email"
             placeholder="john@smith.com"
+            required
           />
         </div>
         <div>
@@ -57,9 +85,8 @@
           />
         </div>
         <button>Register</button>
-
-        <button id="forgotpassword">Forgot password?</button>
       </form>
+      <a href="passwordreset.php" >Forgot password?</a>
     </main>
   </body>
 </html>
