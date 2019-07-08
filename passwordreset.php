@@ -4,8 +4,8 @@
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP
   Page Description:
-  A login page that allows a user to enter their username and Password
-  as well as a remember me link.
+  A password reset page that allows the user to enter an email, sends an emails to the emails
+  with a code, which then can be utilized to update the account password.
 
 
 
@@ -13,6 +13,38 @@
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
   */
+
+  if(isset($_POST['email']))
+  {
+    if(!isset($_POST['code'])){
+    $random = rand(0,100000);
+    require_once "Mail.php";  //this includes the pear SMTP mail library
+    $from = "Password Reset <noreply@loki.trentu.ca>";
+    $to = $_POST['user'];  //put user's email here
+    $subject = "Resetting Password";
+    $body = "Your password reset number is: $random";
+    $host = "smtp.trentu.ca";
+    $headers = array ('From' => $from,
+      'To' => $to,
+      'Subject' => $subject);
+    $smtp = Mail::factory('smtp',
+      array ('host' => $host));
+
+    $mail = $smtp->send($to, $headers, $body);
+    if (PEAR::isError($mail))
+      {
+      echo("<p>" . $mail->getMessage() . "</p>");
+     }
+    else
+      {
+      echo("<p>Message successfully sent!</p>");
+     }
+   }
+   else
+    {
+
+    }
+   }
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +68,23 @@
       <a href="login.php" id="loginButton">Login</a>
     </header>
     <main>
-      <form id="register" action="register.php" method="post">
+    <?php
+      if(!isset($_POST['user'])):
+      ?>
+      <form id="pswreset" action="passwordreset.php" method="POST">
+        <div>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="john@smith.com"
+          />
+        </div>
+        <input type="submit" name="forgotpassword" value="Change Password"/>
+      </form>
+    <?php else:?>
+      <form id="pswreset" action="passwordreset.php" method="POST">
         <div>
           <label for="code">Code:</label>
           <input type="text" name="code" id="code" placeholder="A23ri9F" />
@@ -70,8 +118,9 @@
             required
           />
         </div>
-        <button type="submit" name="forgotpassword">Change Password</button>
+        <input type="submit" name="forgotpassword" value="Change Password"/>
       </form>
+    <?php endif;?>
     </main>
   </body>
 </html>
