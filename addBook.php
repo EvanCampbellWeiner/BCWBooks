@@ -53,7 +53,7 @@ if($realImageFlag == 1){
   <body>
     <header class="fullHeader" id="addBookHeader">
       <h1>Add Book</h1>
-      <a href="index.php" id="homeButton">Home</a>
+      <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="account.php" id="accountButton">Account</a>
 

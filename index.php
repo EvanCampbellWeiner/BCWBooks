@@ -30,8 +30,8 @@
   <body>
     <header class="fullHeader">
       <h1>Library</h1>
-      <a href="home.php" id="homeButton">Home</a>
-      <a href="index.php" id="libraryButton">Library</a>
+      <a href="index.php" id="indexButton">Home</a>
+      <a href="bookShelf.php" id="bookShelfButton">Library</a>
       <a href="register.php" id="accountButton">Register</a>
       <a href="login.php" id="loginButton">Login</a>
     </header>
