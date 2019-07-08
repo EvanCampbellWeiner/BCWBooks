@@ -1,5 +1,5 @@
-<!--
-  Page Name: viewinfo.html
+<?php
+  /*Page Name: viewinfo.html
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP
   Page Description:
@@ -9,8 +9,16 @@
 
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
-  style.css: overarcing css file
--->
+  style.css: overarcing css file*/
+
+  /*session_start(); //start session
+  //check session for user info
+  if(!isset($_SESSION['user'])){
+    //no user info, redirect
+    header("Location:login.php");
+    exit();
+  }*/
+  ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

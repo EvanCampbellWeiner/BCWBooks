@@ -20,6 +20,21 @@
 //Needs validation
   if(isset($_POST['submit']))
     {
+      //get data from post
+      //Select data from database based on username
+      //fetch row from result set - make sure to check that something was returned
+      if (password_verify($pass, $row['pass'])) {
+        if (password_needs_rehash($row['pass'], PASSWORD_DEFAULT, $options))
+        {
+          $newHash = password_hash($pass, PASSWORD_DEFAULT, $options);
+          //update database with new hash
+        }
+        //redirect to main page
+        }
+        else
+         {
+           $error=true;
+         }
       //hash password
       //check if username / password is in database.
       //if it is, set session variables to it.

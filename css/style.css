@@ -76,7 +76,7 @@ min-width: 4.5em;
 }
 
 input{
-  background-color: #a36a36;
+  background-color: white;
   border-radius: 0.7em;
   border-color: #49220b;
   border-width: 0.07em;
@@ -85,6 +85,10 @@ min-width: 4.5em;
   font-size: 2em;
   font-family: "Century", "Georgia", serif;
   margin:0.5em;
+  padding-left:0.3em;
+}
+input#submit{
+  text-align:center;
 }
 
 #forgotpassword {
@@ -92,7 +96,7 @@ min-width: 4.5em;
   font-size: 1em;
   color: blue;
   text-decoration: underline;
-  margin: 1em;
+  margin: 5em;
 }
 
 header {

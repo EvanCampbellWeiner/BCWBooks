@@ -14,7 +14,43 @@
   style.css: overarcing css file
   */
 
-  if($_POST[''])
+
+  //To be done:
+  //- check if email already exists
+  //- check password length
+  //- check password for various characters
+  include "includes/library.php";
+  session_start();
+  $pdo = connectdb();
+  if(isset($_POST['submit']))
+  {
+    $psw = $_POST['password'];
+    $psw2 = $_POST['password2'];
+    if($psw != $psw2)
+    {
+      $passerror = "Error: Passwords do not match.";
+    }
+    //get data from POST
+    //check for errors
+    if(!isset($passerror)){
+      $email = $_POST['email'];
+      $options = array('cost' => 12);
+      $hashpsw = password_hash($psw, PASSWORD_DEFAULT, $options);
+      $sql = "insert into bcwBooks_users(username_email, password) values (?,?)";
+      $statement = $pdo -> prepare($sql);
+      $statement->execute([$email, $hashpsw]);
+      //insert into database using parametrized query
+      //session stuff
+      $_SESSION['user'] = $email;
+      //cookie stuff
+      //redirect elsewhere
+      header("Location:bookShelf.php");
+      exit();
+    }
+  /*  $email = $_POST['email'];
+    $psw = $_POST['password'];
+    $sql = "select * from bcwBooks_users where username_email =?";*/
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +74,7 @@
       <a href="login.php" id="loginButton">Login</a>
     </header>
     <main>
-      <form id="register" action="register.php" method="post">
+      <form id="register" action="register.php" method="POST">
         <div>
           <label for="email">Email:</label>
           <input
@@ -49,6 +85,11 @@
             required
           />
         </div>
+        <?php if(isset($passerror)):?>
+          <div>
+            <?php echo $passerror;?>
+          </div>
+        <?php endif;?>
         <div>
           <label for="password">Password:</label>
           <input
@@ -70,7 +111,7 @@
             required
           />
         </div>
-        <input type="submit" name="register">Register</input>
+        <input type="submit" name="submit" value="Register" id="submit"/>
       </form>
     </main>
   </body>
