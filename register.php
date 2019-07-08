@@ -16,7 +16,6 @@
 
 
   //To be done:
-  //- check if email already exists
   //- check password length
   //- check password for various characters
   include "includes/library.php";
@@ -26,16 +25,24 @@
   {
     $psw = $_POST['password'];
     $psw2 = $_POST['password2'];
+    $email = $_POST['email'];
+    $options = array('cost' => 12);
+    $hashpsw = password_hash($psw, PASSWORD_DEFAULT, $options);
+    $sql = "select username_email from bcwBooks_users where username_email = ?";
+    $statement = $pdo -> prepare($sql);
+    $statement->execute([$email]);
+    $result = $statement->fetch();
     if($psw != $psw2)
     {
       $passerror = "Error: Passwords do not match.";
     }
+    else if($result)
+    {
+      $passerror = "Error: Email is already in use.";
+    }
     //get data from POST
     //check for errors
     if(!isset($passerror)){
-      $email = $_POST['email'];
-      $options = array('cost' => 12);
-      $hashpsw = password_hash($psw, PASSWORD_DEFAULT, $options);
       $sql = "insert into bcwBooks_users(username_email, password) values (?,?)";
       $statement = $pdo -> prepare($sql);
       $statement->execute([$email, $hashpsw]);
