@@ -21,24 +21,35 @@
 */
   session_start();
  include "includes/library.php";
- $realImageFlag =1;
  $errors = array();
-
+ $file_ext = strtolower(end(explode('.',$_FILES['ebookToUpload']['name'])));
+$file_size = $_FILES['ebookToUpload']['size'];
+$cover_file_size = $_FILES['ebookCover']['size'];
  $pdo=connectdb();
  if (isset($_POST['addBook'])) {
-   $check = getimagesize($_FILES["ebookToUpload"]["tmp_name"]);
-if($check !== false) {
-    $realImageFlag = 1;
-} else {
-    $realImageFlag = 0;
+
+if($file_size > 2000000) {
+    $errors[] = 'Error: Ebook file size exceeds 2MB.';
+}
+if($cover_file_size > 2000000) {
+    $errors[] = 'Error: Cover file size exceeds 2MB.';
 }
 
-if($realImageFlag == 1){
+//File extension checker code based on example from https://www.tutorialspoint.com/php/php_file_uploading.htm
+$extensions = array("mobi","pdf","epub");
+
+    if(in_array($file_ext,$extensions)=== false){
+       $errors[]="Invalid ebook file extension detected. Ebook file extensions must be .mobi, .epub or .pdf";
+    }
+//if(empty($errors) ==true ){
    $sql = "INSERT INTO bcwBooks_bookData(filename, cover_filename, title, tags, author, description, publication_date, user) VALUES (?,?,?,?,?,?,?,?)";
    $stmt = $pdo->prepare($sql);
    //$stmt->execute('$_FILE["ebookToUpload"]','$_FILE["ebookCover"]','$_POST["bookTitle"]', '$_POST["bookTags"]', '$_POST["bookAuthor"]', '$_POST["bookDe"]', '$_POST["bookDescription"]', '$_SESSION['user']');
     $stmt->execute(['testFileName','testCoverFileName','testTitle','TestTags','testAuthor','testDescription','2019-07-06','testUser']);
-  }
+//  }
+/*  else{
+    print_r($errors);
+  } */
  }
 
   ?>
