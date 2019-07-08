@@ -17,7 +17,10 @@
   if(isset($_POST['email']))
   {
     if(!isset($_POST['code'])){
-    $random = rand(0,100000);
+      end_session();
+      start_session();
+    $random = rand(0,100000000);
+    $_SESSION['code'] =  $random;
     require_once "Mail.php";  //this includes the pear SMTP mail library
     $from = "Password Reset <noreply@loki.trentu.ca>";
     $to = $_POST['user'];  //put user's email here
