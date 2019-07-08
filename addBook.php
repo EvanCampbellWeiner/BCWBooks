@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 <?php
 /*  Page Name: addBook.php
-=======
-<?php/*
-  Page Name: addBook.hml
->>>>>>> branch1
   Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
   Language: HTML5 and PHP
   Page Description:
@@ -14,24 +9,20 @@
 
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
-<<<<<<< HEAD
-  style.css: overarcing css file
-  */
-?>
-=======
   style.css: overarcing css file */
   session_start();
  include "includes/library.php";
  $pdo=connectdb();
  if (isset($_POST['addBook'])) {
-   $stmt = $pdo->prepare("INSERT INTO bcwBooks_bookData(title, tags, author, description, publication_date) VALUES ('$_POST['bookTitle']', '$_POST['bookTags']', '$_POST['bookAuthor']', '$_POST['bookDe']', '$_POST['bookDescription']')");
-   $stmt->execute();
+   $sql = "INSERT INTO bcwBooks_bookData(filename, cover_filename, title, tags, author, description, publication_date, user) VALUES (?,?,?,?,?,?,?,?)";
+   $stmt = $pdo->prepare($sql);
+   //$stmt->execute('$_POST["bookTitle"]', '$_POST["bookTags"]', '$_POST["bookAuthor"]', '$_POST["bookDe"]', '$_POST["bookDescription"]');
+    $stmt->execute(['testFileName','testCoverFileName','testTitle','TestTags','testAuthor','testDescription','2019-07-06','testUser']);
  }
 
   ?>
 
 
->>>>>>> branch1
 
 <!DOCTYPE html>
 <html lang="en">
