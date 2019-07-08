@@ -13,17 +13,18 @@
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
   */
-
+  include "includes/library.php";
+session_start();
+$pdo = connectdb();
   if(isset($_POST['email']))
   {
-    if(!isset($_POST['code'])){
-      end_session();
-      start_session();
+    if(!isset($_SESSION['code'])){
+      var_dump($_POST);
     $random = rand(0,100000000);
     $_SESSION['code'] =  $random;
     require_once "Mail.php";  //this includes the pear SMTP mail library
     $from = "Password Reset <noreply@loki.trentu.ca>";
-    $to = $_POST['user'];  //put user's email here
+    $to = $_POST['email'];  //put user's email here
     $subject = "Resetting Password";
     $body = "Your password reset number is: $random";
     $host = "smtp.trentu.ca";
@@ -43,9 +44,31 @@
       echo("<p>Message successfully sent!</p>");
      }
    }
-   else
+   else if(isset($_POST['code']))
     {
-
+      var_dump($_POST);
+        if($_SESSION['code']==$_POST['code'])
+        {
+          $psw = $_POST['password'];
+          $psw2 = $_POST['password2'];
+          $email = $_POST['email'];
+          $options = array('cost' => 12);
+          $hashpsw = password_hash($psw, PASSWORD_DEFAULT, $options);
+          if($psw != $psw2)
+          {
+            $passerror = "Error: Passwords do not match.";
+          }
+          //get data from POST
+          //check for errors
+          if(!isset($passerror)){
+            $sql = "update bcwBooks_users set password = ? where username_email = ?";
+            $statement = $pdo -> prepare($sql);
+            $statement->execute([$hashpsw,$email]);
+            //redirect elsewhere
+            header("Location:login.php");
+            exit();
+          }
+        }
     }
    }
   ?>
@@ -72,7 +95,7 @@
     </header>
     <main>
     <?php
-      if(!isset($_POST['user'])):
+      if(!isset($_POST['email'])):
       ?>
       <form id="pswreset" action="passwordreset.php" method="POST">
         <div>
