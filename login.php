@@ -20,40 +20,44 @@
 //Needs validation
   if(isset($_POST['submit']))
     {
+
+      $email = $_POST['email'];
+      $psw = $_POST['password'];
+
+      $sql = "select * from bcwBooks_users where username_email =?";
+      $statement = $pdo -> prepare($sql);
+      $statement -> execute([$email]);
+      $result = $statement->fetch();
       //get data from post
       //Select data from database based on username
       //fetch row from result set - make sure to check that something was returned
-      if (password_verify($pass, $row['pass'])) {
-        if (password_needs_rehash($row['pass'], PASSWORD_DEFAULT, $options))
-        {
-          $newHash = password_hash($pass, PASSWORD_DEFAULT, $options);
-          //update database with new hash
-        }
-        //redirect to main page
-        }
+      if($result)
+      {
+        if (password_verify($psw, $result['password']))
+          {
+            if (password_needs_rehash($result['password'], PASSWORD_DEFAULT, $options))
+            {
+              $newHash = password_hash($psw, PASSWORD_DEFAULT, $options);
+              //update database with new hash
+            }
+            $_SESSION['user'] = $result['username_email'];
+            header("Location: bookShelf.php");
+            exit();
+          }
         else
-         {
-           $error=true;
-         }
+          {
+             $passerror = "Error: Invalid Email or Password";
+          }
+      }
+      else
+      {
+        $passerror = "Error: Invalid Email or Password";
+      }
       //hash password
       //check if username / password is in database.
       //if it is, set session variables to it.
       //then redirect to library.
       //if it is not, then add to error and display element
-      //sanitizing email
-      $_POST['email'] = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-      $email = $_POST['email'];
-      $psw = $_POST['password'];
-      $sql = "select * from bcwBooks_users where username_email =?";
-      $statement = $pdo -> prepare($sql);
-      $statement -> execute([$email, $psw]);
-      $result = $statement->fetch();
-      if($result && password_verify($psw, $result['password'])) {
-        $_SESSION['user'] = $_POST['user'];
-      }
-      else{
-        $errors = "Incorrect Password";
-      }
 
     }
   ?>
@@ -80,6 +84,11 @@
     </header>
     <main>
       <form id="login" action="login.php" method="post">
+        <?php if(isset($passerror)):?>
+          <div>
+            <?php echo $passerror;?>
+          </div>
+        <?php endif;?>
         <div>
           <label for="email">Email:</label>
           <input
