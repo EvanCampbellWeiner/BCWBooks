@@ -18,10 +18,7 @@
     //no user info, redirect
     header("Location:login.php");
     exit();
-<<<<<<< HEAD
   }
-=======
-  }*/
    include "includes/library.php";
  $pdo=connectdb();
  $base_location = "../../www_data/";
@@ -35,7 +32,6 @@ $cover_path = $base_location. $cover_filename;
 //echo $cover_path;
 
 
->>>>>>> branch1
 ?>
 
 <!DOCTYPE html>
