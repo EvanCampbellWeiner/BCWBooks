@@ -11,13 +11,13 @@
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
 
-  /*session_start(); //start session
+  */session_start(); //start session
   //check session for user info
   if(!isset($_SESSION['user'])){
     //no user info, redirect
     header("Location:login.php");
     exit();
-  }*/
+  }
 
  include "includes/library.php";
  $errors = array();
