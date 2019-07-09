@@ -52,7 +52,7 @@ main form {
 form div {
   padding: 1em;
   margin: 1em;
-  min-width: 10em;
+  width: 10em;
   font-size: 1em;
   border: 0.2em solid black;
   justify-content: center;
@@ -69,26 +69,10 @@ button {
   border-radius: 0.7em;
   border-color: #49220b;
   border-width: 0.07em;
-min-width: 4.5em;
-  min-height: 2em;
+  width: 4.5em;
+  height: 2em;
   font-size: 2em;
   font-family: "Century", "Georgia", serif;
-}
-
-input{
-  background-color: white;
-  border-radius: 0.7em;
-  border-color: #49220b;
-  border-width: 0.07em;
-min-width: 4.5em;
-  min-height: 2em;
-  font-size: 2em;
-  font-family: "Century", "Georgia", serif;
-  margin:0.5em;
-  padding-left:0.3em;
-}
-input#submit{
-  text-align:center;
 }
 
 #forgotpassword {
@@ -96,7 +80,7 @@ input#submit{
   font-size: 1em;
   color: blue;
   text-decoration: underline;
-  margin: 5em;
+  margin: 1em;
 }
 
 header {
@@ -156,8 +140,8 @@ header a {
   border-radius: 0.7em;
   border-color: #49220b;
   border-width: 0.07em;
-min-height: 2em;
-min-width: 4em;
+  height: 2em;
+  width: 4em;
   font-size: 1.5em;
   text-align: center;
   font-family: "Century", "Georgia", serif;
@@ -416,13 +400,4 @@ h3 {
   font-size: 3em;
 }
 footer {
-}
-
-span{
-  border: 1em solid black;
-  background-color:white;
-  margin:1em;
-  padding:1em;
-  color:orange;
-  font-weight:bold;
 }

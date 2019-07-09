@@ -18,6 +18,18 @@
     header("Location:login.php");
     exit();
   }*/
+  include "includes/library.php";
+$pdo=connectdb();
+$base_location = "../../www_data/";
+ $sql = "SELECT * FROM bcwBooks_bookData WHERE id=7";
+ $stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename = $book['cover_filename'];
+$cover_path = $base_location. $cover_filename;
+$title = $book['title'];
+$author = $book['author'];
+$description = $book['description'];
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,26 +58,25 @@
     </header>
 
     <div class="displayBox" id="addBookDisplayBox">
-      <h2>Title</h2>
-      <h3>By: Author</h3>
+      <h2><?php echo "$title"; ?></h2>
+      <h3>By: <?php echo "$author"; ?></h3>
       <img
-        src="images/SetForLife2.jpg"
+        src="<?php echo "$cover_path"; ?>"
         alt="sample book cover"
         height="640"
         width="400"
       />
-      <p>FileType:</p>
-      <p>Description:</p>
+      <p>Description: <?php echo "$description"; ?></p>
       <nav id="iconDiv">
         <!-- Icons from https://icons8.com/icons -->
-        <a href="EditBook.html" id="editBook" class="viewBookIcons"
+        <a href="EditBook.php" id="editBook" class="viewBookIcons"
           ><img
             src="images/edit.png"
             alt="Edit book icon"
             height="30"
             width="30"
         /></a>
-        <a href="deleteBook.html" id="deleteBook" class="viewBookIcons"
+        <a href="deleteBook.php" id="deleteBook" class="viewBookIcons"
           ><img
             src="images/trash.png"
             alt="delete book icon"
