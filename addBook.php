@@ -18,15 +18,23 @@
     header("Location:login.php");
     exit();
   }*/
-*/
-  session_start();
+
  include "includes/library.php";
  $errors = array();
- $file_ext = strtolower(end(explode('.',$_FILES['ebookToUpload']['name'])));
-$file_size = $_FILES['ebookToUpload']['size'];
-$cover_file_size = $_FILES['ebookCover']['size'];
+ $timestamp = time();
+ $timestamp2 = time();
+ $new_location = "../../www_data/";
  $pdo=connectdb();
  if (isset($_POST['addBook'])) {
+   if(isset($_FILES['ebookToUpload']) && isset($_FILES['ebookCover'])){
+     $destination = $new_location. $timestamp. basename($_FILES["ebookToUpload"]["name"]);
+    $cover_destination = $new_location. $timestamp2. basename($_FILES["ebookCover"]["name"]);
+     $ebookFileName = $timestamp. basename($_FILES["ebookToUpload"]["name"]);
+      $coverFileName = $timestamp2. basename($_FILES["ebookCover"]["name"]);
+      $toExplode = $_FILES['ebookToUpload']['name'];
+  $file_ext = strtolower(end(explode('.', $toExplode)));
+  $file_size = $_FILES['ebookToUpload']['size'];
+  $cover_file_size = $_FILES['ebookCover']['size'];
 
 if($file_size > 2000000) {
     $errors[] = 'Error: Ebook file size exceeds 2MB.';
@@ -41,15 +49,24 @@ $extensions = array("mobi","pdf","epub");
     if(in_array($file_ext,$extensions)=== false){
        $errors[]="Invalid ebook file extension detected. Ebook file extensions must be .mobi, .epub or .pdf";
     }
-//if(empty($errors) ==true ){
+
+
+if(empty($errors) ==true ){
    $sql = "INSERT INTO bcwBooks_bookData(filename, cover_filename, title, tags, author, description, publication_date, user) VALUES (?,?,?,?,?,?,?,?)";
    $stmt = $pdo->prepare($sql);
-   //$stmt->execute('$_FILE["ebookToUpload"]','$_FILE["ebookCover"]','$_POST["bookTitle"]', '$_POST["bookTags"]', '$_POST["bookAuthor"]', '$_POST["bookDe"]', '$_POST["bookDescription"]', '$_SESSION['user']');
-    $stmt->execute(['testFileName','testCoverFileName','testTitle','TestTags','testAuthor','testDescription','2019-07-06','testUser']);
-//  }
-/*  else{
+ $stmt->execute([$ebookFileName,$coverFileName, $_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $_POST["bookDescription"], /*'date2'*/$_POST["bookPublicationDate"], /*'$_SESSION['user']'*/'testUser3']);
+  //  $stmt->execute(['testFileName','testCoverFileName','testTitle','TestTags','testAuthor','testDescription','2019-07-06','testUser']);
+    move_uploaded_file($_FILES["ebookToUpload"]["tmp_name"], $destination);
+    move_uploaded_file($_FILES["ebookCover"]["tmp_name"], $cover_destination);
+  }
+  else{
     print_r($errors);
-  } */
+  }
+}
+else{
+$errors[]="Error: User must upload an ebook file and a cover file.";
+  print_r($errors);
+}
  }
 
   ?>
@@ -88,13 +105,13 @@ $extensions = array("mobi","pdf","epub");
           <label for="ebookToUpload" class="addBookLabel"
             >Upload Ebook File(.mobi, .epub, .pdf)</label
           >
-          <input type="file" name="ebookToUpload" id="ebookToUpload" />
+          <input type="file" name="ebookToUpload" id="ebookToUpload" required/>
         </div>
         <div class="addBookFormDiv">
           <label for="ebookCover" class="addBookLabel"
             >Upload Ebook Cover(.jpg, .png)</label
           >
-          <input type="file" name="ebookCover" id="ebookCover" />
+          <input type="file" name="ebookCover" id="ebookCover" required/>
         </div>
         <div class="addBookFormDiv">
           <label for="bookTitle" class="addBookLabel">Title: </label>
@@ -112,6 +129,7 @@ $extensions = array("mobi","pdf","epub");
             placeholder="Author Name"
             name="bookAuthor"
             id="bookAuthor"
+            required
           />
         </div>
         <div class="addBookFormDiv" id="addBookFormTextareaDiv">
@@ -125,6 +143,7 @@ $extensions = array("mobi","pdf","epub");
             placeholder="Tag1, Tag2, Tag3..."
             name="bookTags"
             id="bookTags"
+            required
           />
         </div>
         <div class="addBookFormDiv">
@@ -134,6 +153,7 @@ $extensions = array("mobi","pdf","epub");
             value="2019-07-06"
             name="bookPublicationDate"
             id="bookPublicationDate"
+            required
           />
         </div>
         <div class="addBookFormDiv">
