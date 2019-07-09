@@ -32,7 +32,10 @@
     $statement = $pdo -> prepare($sql);
     $statement->execute([$email]);
     $result = $statement->fetch();
-    if($psw != $psw2)
+    if(strlen($psw)<8){
+      $passerror = "Error: Password must be more then 8 characters";
+    }
+    else if($psw != $psw2)
     {
       $passerror = "Error: Passwords do not match.";
     }

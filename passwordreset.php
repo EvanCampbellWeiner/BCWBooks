@@ -54,7 +54,10 @@ $pdo = connectdb();
           $email = $_POST['email'];
           $options = array('cost' => 12);
           $hashpsw = password_hash($psw, PASSWORD_DEFAULT, $options);
-          if($psw != $psw2)
+          if(strlen($psw)<8){
+            $passerror = "Error: Password must be more then 8 characters";
+          }
+          else if($psw != $psw2)
           {
             $passerror = "Error: Passwords do not match.";
           }
