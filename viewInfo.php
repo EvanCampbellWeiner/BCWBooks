@@ -16,7 +16,7 @@
     //no user info, redirect
     header("Location:login.php");
     exit();
-  }*/
+  }
   include "includes/library.php";
 $pdo=connectdb();
 $base_location = "../../www_data/";

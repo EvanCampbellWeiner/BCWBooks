@@ -18,10 +18,7 @@
     //no user info, redirect
     header("Location:login.php");
     exit();
-<<<<<<< HEAD
   }
-=======
-  }*/
   include "includes/library.php";
 $pdo=connectdb();
 $base_location = "../../www_data/";
@@ -31,7 +28,6 @@ $stmt->execute();
 $book = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename = $book['cover_filename'];
 $cover_path = $base_location. $cover_filename;
->>>>>>> branch1
 ?>
 <!DOCTYPE html>
 <html lang="en">
