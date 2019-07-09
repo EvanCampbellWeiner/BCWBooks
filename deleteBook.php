@@ -18,7 +18,20 @@
     //no user info, redirect
     header("Location:login.php");
     exit();
+<<<<<<< HEAD
   }
+=======
+  }*/
+  include "includes/library.php";
+$pdo=connectdb();
+$base_location = "../../www_data/";
+ $sql = "SELECT * FROM bcwBooks_bookData WHERE id=7";
+ $stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename = $book['cover_filename'];
+$cover_path = $base_location. $cover_filename;
+>>>>>>> branch1
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +60,7 @@
     </header>
     <div class="displayBox">
       <img
-        src="images/SetForLife2.jpg"
+        src="<?php echo "$cover_path"; ?>"
         alt="sample book cover"
         height="640"
         width="400"
