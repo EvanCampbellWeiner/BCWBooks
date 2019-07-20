@@ -41,6 +41,8 @@
               //update database with new hash
             }
             $_SESSION['user'] = $result['username_email'];
+            if($_POST['remember'])
+            setcookie("BCWBooksUsername", $_SESSION['user'],time()+60*60*24*14);
             header("Location: bookShelf.php");
             exit();
           }
@@ -115,6 +117,10 @@
             ?>
           <span class="errors"> <?php  echo $errors; ?> </span>
      <?php endif; ?>
+     <div>
+       <label for = "remember">Remember Me</label>
+       <input type= "checkbox" name = "remember" value = "Remember Me" />
+     </div>
       </form>
       <a href="passwordreset.php" >Forgot password?</a>
     </main>
