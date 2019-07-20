@@ -41,8 +41,13 @@ $cover_path = $base_location. $cover_filename;
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <!-- reset.css file taken from assignment 1 -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <!-- Script for using icons from FontAwesome.com -->
-    <script src="https://kit.fontawesome.com/c155ad6c68.js"></script>
+    <!-- Stylesheet link for using icons from FontAwesome.com -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
@@ -87,7 +92,7 @@ $cover_path = $base_location. $cover_filename;
         </div>
         <nav id="shelfNav">
           <!-- Add icon sourced from https://icons8.com/icons/set/plus -->
-          <a href="addBook.html" id="addBook"
+          <a href="addBook.php" id="addBook"
             ><img
               src="images/plus-icon.png"
               alt="Add book icon"

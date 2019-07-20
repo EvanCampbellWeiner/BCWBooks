@@ -21,16 +21,16 @@
 
  include "includes/library.php";
  $errors = array();
- $timestamp = time();
- $timestamp2 = time();
+ //$timestamp = time();
+// $timestamp2 = time();
  $new_location = "../../www_data/";
  $pdo=connectdb();
  if (isset($_POST['addBook'])) {
    if(isset($_FILES['ebookToUpload']) && isset($_FILES['ebookCover'])){
      $destination = $new_location. $timestamp. basename($_FILES["ebookToUpload"]["name"]);
     $cover_destination = $new_location. $timestamp2. basename($_FILES["ebookCover"]["name"]);
-     $ebookFileName = $timestamp. basename($_FILES["ebookToUpload"]["name"]);
-      $coverFileName = $timestamp2. basename($_FILES["ebookCover"]["name"]);
+     $ebookFileName = uniqid(). basename($_FILES["ebookToUpload"]["name"]);
+      $coverFileName = uniqid(). basename($_FILES["ebookCover"]["name"]);
       $toExplode = $_FILES['ebookToUpload']['name'];
   $file_ext = strtolower(end(explode('.', $toExplode)));
   $file_size = $_FILES['ebookToUpload']['size'];
