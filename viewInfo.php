@@ -29,6 +29,9 @@ $cover_path = $base_location. $cover_filename;
 $title = $book['title'];
 $author = $book['author'];
 $description = $book['description'];
+$filename = $book['filename'];
+$tags = $book['tags'];
+$pubDate = $book['publication_date'];
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,9 +69,12 @@ $description = $book['description'];
         width="400"
       />
       <p>Description: <?php echo "$description"; ?></p>
+      <p>Filename: <?php echo "$filename"; ?></p>
+      <p>Tags: <?php echo "$tags"; ?></p>
+      <p>Publication Date: <?php echo "$pubDate"; ?></p>
       <nav id="iconDiv">
         <!-- Icons from https://icons8.com/icons -->
-        <a href="EditBook.php" id="editBook" class="viewBookIcons"
+        <a href="editBook.php" id="editBook" class="viewBookIcons"
           ><img
             src="images/edit.png"
             alt="Edit book icon"
