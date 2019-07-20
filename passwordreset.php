@@ -13,11 +13,15 @@
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
   */
+  //Includes, Session Start, and $pdo connect
   include "includes/library.php";
-session_start();
-$pdo = connectdb();
+  session_start();
+  $pdo = connectdb();
+
+  //if the email has been chosen to reset do:
   if(isset($_POST['email']))
   {
+    //if we haven't made a code yet, create the code and email it to the recipient
     if(!isset($_SESSION['code'])){
       var_dump($_POST);
     $random = rand(0,100000000);
@@ -44,11 +48,15 @@ $pdo = connectdb();
       echo("<p>Message successfully sent!</p>");
      }
    }
+
+   //if the user has entered a code then check if its equal to the right code
    else if(isset($_POST['code']))
     {
       var_dump($_POST);
+        //if it is equal to the right code
         if($_SESSION['code']==$_POST['code'])
         {
+          //check the passwords are equal, hash one, display errors if password has errors
           $psw = $_POST['password'];
           $psw2 = $_POST['password2'];
           $email = $_POST['email'];
@@ -61,13 +69,12 @@ $pdo = connectdb();
           {
             $passerror = "Error: Passwords do not match.";
           }
-          //get data from POST
-          //check for errors
+          //update the bcwBooks_users table with the new password where the email was
           if(!isset($passerror)){
             $sql = "update bcwBooks_users set password = ? where username_email = ?";
             $statement = $pdo -> prepare($sql);
             $statement->execute([$hashpsw,$email]);
-            //redirect elsewhere
+            //redirect to the login page
             header("Location:login.php");
             exit();
           }
@@ -77,6 +84,7 @@ $pdo = connectdb();
   ?>
 <!DOCTYPE html>
 <html lang="en">
+  <!-- head of the project with title, links, includes -->
   <head>
     <title>Login</title>
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
@@ -87,8 +95,9 @@ $pdo = connectdb();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-
+ <!-- all content on the page -->
   <body>
+    <!-- head at top of screen -->
     <header class="fullHeader">
       <h1>Password Reset</h1>
       <a href="index.php" id="homeButton">Home</a>
@@ -96,10 +105,13 @@ $pdo = connectdb();
       <a href="register.php" id="accountButton">Register</a>
       <a href="login.php" id="loginButton">Login</a>
     </header>
+    <!-- main content on the page -->
     <main>
     <?php
+    //if the email hasn't been chosen yet display the ask for email
       if(!isset($_POST['email'])):
       ?>
+      <!-- form for getting username/email to reset-->
       <form id="pswreset" action="passwordreset.php" method="POST">
         <div>
           <label for="email">Email:</label>
@@ -112,6 +124,7 @@ $pdo = connectdb();
         </div>
         <input type="submit" name="forgotpassword" value="Change Password"/>
       </form>
+      <!-- if the email has been chosen, display form to get code, email and new password -->
     <?php else:?>
       <form id="pswreset" action="passwordreset.php" method="POST">
         <div>
