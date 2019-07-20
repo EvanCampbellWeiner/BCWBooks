@@ -73,13 +73,22 @@
     <script src="https://kit.fontawesome.com/c155ad6c68.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- fallback for jQuery if CDN is unavailable -->
+    <script>
+      window.jQuery ||
+        document.write('<script src="scripts/jquery.js"><\/script>');
+    </script>
+
+    <!-- Example - Relative Path - -->
+    <script src="scripts/script.js"></script>
   </head>
 
   <body>
     <header class="fullHeader">
       <h1>Register</h1>
       <a href="index.php" id="indexButton">Home</a>
-      <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="register.php" id="accountButton">Register</a>
       <a href="login.php" id="loginButton">Login</a>
     </header>

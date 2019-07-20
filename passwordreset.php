@@ -24,7 +24,7 @@
     //if we haven't made a code yet, create the code and email it to the recipient
     if(!isset($_SESSION['code'])){
       var_dump($_POST);
-    $random = rand(0,100000000);
+    $random = uniqid();
     $_SESSION['code'] =  $random;
     require_once "Mail.php";  //this includes the pear SMTP mail library
     $from = "Password Reset <noreply@loki.trentu.ca>";
@@ -52,7 +52,6 @@
    //if the user has entered a code then check if its equal to the right code
    else if(isset($_POST['code']))
     {
-      var_dump($_POST);
         //if it is equal to the right code
         if($_SESSION['code']==$_POST['code'])
         {
@@ -94,6 +93,16 @@
     <script src="https://kit.fontawesome.com/c155ad6c68.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- fallback for jQuery if CDN is unavailable -->
+    <script>
+      window.jQuery ||
+        document.write('<script src="scripts/jquery.js"><\/script>');
+    </script>
+
+    <!-- Example - Relative Path - -->
+    <script src="scripts/script.js"></script>
   </head>
  <!-- all content on the page -->
   <body>
@@ -101,7 +110,6 @@
     <header class="fullHeader">
       <h1>Password Reset</h1>
       <a href="index.php" id="homeButton">Home</a>
-      <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="register.php" id="accountButton">Register</a>
       <a href="login.php" id="loginButton">Login</a>
     </header>

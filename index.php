@@ -14,12 +14,7 @@
   style.css: overarcing css file
   */
   session_start(); //start session
-  //check session for user info
-  if(!isset($_SESSION['user'])){
-    //no user info, redirect
-    header("Location:login.php");
-    exit();
-  }
+
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,22 +31,17 @@
 
   <body>
     <header class="fullHeader">
-      <h1>Library</h1>
+      <h1>BCW Books</h1>
       <a href="index.php" id="indexButton">Home</a>
-      <a href="bookShelf.php" id="bookShelfButton">Library</a>
       <?php
       if(!isset($_SESSION['user'])):
       ?>
       <a href="register.php" id="accountButton">Register</a>
-      <?php else:?>
-        <a href="login.php" id="loginButton">Account</a>
-      <?php endif; ?>
-      <?php
-      if(isset($_SESSION['user'])):
-      ?>
-      <a href="logout.php" id="loginButton">Logout</a>
-      <?php else:?>
       <a href="login.php" id="loginButton">Login</a>
+      <?php else:?>
+        <a href="bookShelf.php" id="bookShelfButton">Library</a>
+        <a href="login.php" id="loginButton">Account</a>
+        <a href="logout.php" id="loginButton">Logout</a>
       <?php endif; ?>
     </header>
     <div id="content">

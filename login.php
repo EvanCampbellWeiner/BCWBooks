@@ -88,7 +88,6 @@
     <header class="fullHeader">
       <h1>Login</h1>
       <a href="index.php" id="indexButton">Home</a>
-      <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="register.php" id="accountButton">Register</a>
       <a href="login.php" id="loginButton">Login</a>
     </header>
