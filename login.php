@@ -24,36 +24,44 @@
       $email = $_POST['email'];
       $psw = $_POST['password'];
 
-      $sql = "select * from bcwBooks_users where username_email =?";
-      $statement = $pdo -> prepare($sql);
-      $statement -> execute([$email]);
-      $result = $statement->fetch();
-      //get data from post
-      //Select data from database based on username
-      //fetch row from result set - make sure to check that something was returned
-      if($result)
+      $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+      //After sanitization Validation is performed
+      $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+      if($email!="")
       {
-        if (password_verify($psw, $result['password']))
-          {
-            if (password_needs_rehash($result['password'], PASSWORD_DEFAULT, $options))
+
+        $sql = "select * from bcwBooks_users where username_email =?";
+        $statement = $pdo -> prepare($sql);
+        $statement -> execute([$email]);
+        $result = $statement->fetch();
+        //get data from post
+        //Select data from database based on username
+        //fetch row from result set - make sure to check that something was returned
+        if($result)
+        {
+          if (password_verify($psw, $result['password']))
             {
-              $newHash = password_hash($psw, PASSWORD_DEFAULT, $options);
-              //update database with new hash
+              if (password_needs_rehash($result['password'], PASSWORD_DEFAULT, $options))
+              {
+                $newHash = password_hash($psw, PASSWORD_DEFAULT, $options);
+                //update database with new hash
+              }
+              $_SESSION['user'] = $result['username_email'];
+              if($_POST['remember'])
+              setcookie("BCWBooksUsername", $_SESSION['user'],time()+60*60*24*14);
+              header("Location: bookShelf.php");
+              exit();
             }
-            $_SESSION['user'] = $result['username_email'];
-            if($_POST['remember'])
-            setcookie("BCWBooksUsername", $_SESSION['user'],time()+60*60*24*14);
-            header("Location: bookShelf.php");
-            exit();
-          }
+          else
+            {
+               $passerror = "Error: Invalid Email or Password";
+            }
+        }
         else
-          {
-             $passerror = "Error: Invalid Email or Password";
-          }
-      }
-      else
-      {
-        $passerror = "Error: Invalid Email or Password";
+        {
+          $passerror = "Error: Invalid Email or Password";
+        }
       }
       //hash password
       //check if username / password is in database.
@@ -97,7 +105,13 @@
             type="email"
             name="email"
             id="email"
+            <?php
+            if(isset($_COOKIE['BCWBooksUsername'])):
+              ?>
+              value = <?php echo $_COOKIE['BCWBooksUsername'] ?>
+            <?php else: ?>
             placeholder="john@smith.com"
+          <?php endif;?>
             required
           />
         </div>
@@ -111,16 +125,17 @@
             required
           />
         </div>
+        <div>
+          <label for = "remember">Remember Me:</label>
+          <input type= "checkbox" name = "remember" id = "remember"/>
+        </div>
         <input type="submit" name="submit" value="Login"/>
         <?php
           if(isset($errors)):
             ?>
           <span class="errors"> <?php  echo $errors; ?> </span>
      <?php endif; ?>
-     <div>
-       <label for = "remember">Remember Me</label>
-       <input type= "checkbox" name = "remember" value = "Remember Me" />
-     </div>
+
       </form>
       <a href="passwordreset.php" >Forgot password?</a>
     </main>

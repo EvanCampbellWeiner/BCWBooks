@@ -11,13 +11,69 @@
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
 */
+include "includes/library.php";
   session_start(); //start session
+  $pdo = connectdb();
+
   //check session for user info
   if(!isset($_SESSION['user'])){
     //no user info, redirect
     header("Location:login.php");
     exit();
   }
+  $email = $_SESSION['user'];
+  $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+  //After sanitization Validation is performed
+  $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+  if(isset($_POST['update']))
+  {
+    if($email!="")
+    {
+      $email = $_POST['email'];
+      $psw = $_POST['password'];
+
+      $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+      //After sanitization Validation is performed
+      $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+      $sql = "select * from bcwBooks_users where username_email =?";
+      $statement = $pdo -> prepare($sql);
+      $statement -> execute([$_SESSION['user']]);
+      $result = $statement->fetch();
+      //get data from post
+      //Select data from database based on username
+      //fetch row from result set - make sure to check that something was returned
+      if($result)
+      {
+        if (password_verify($psw, $result['password']))
+          {
+            if (password_needs_rehash($result['password'], PASSWORD_DEFAULT, $options))
+            {
+              $newHash = password_hash($psw, PASSWORD_DEFAULT, $options);
+              //update database with new hash
+            }
+
+            $sql = "update bcwBooks_users set username_email= ? where id =?";
+            $statement = $pdo -> prepare($sql);
+            $statement -> execute([$email, $result['id']]);
+            $_SESSION['user'] = $email;
+
+            header("Location: account.php");
+            exit();
+          }
+        else
+          {
+             $passerror = "Error: Invalid Email or Password";
+          }
+      }
+      else
+      {
+        $passerror = "Error: Invalid Email or Password";
+      }
+    }
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,14 +104,14 @@
       <?php endif; ?>
     </header>
     <main>
-      <form id="updateAccount" action="updateAccount.php" method="post">
+      <form id="updateAccount" action="account.php" method="post">
         <div>
           <label for="email">Email:</label>
           <input
             type="email"
             name="email"
             id="email"
-            placeholder="johnsmith@yahoo.ca"
+              value = <?php echo $email ?>
           />
         </div>
         <div>
@@ -68,8 +124,9 @@
             required
           />
         </div>
-        <button type="submit" name="changeinfo">Update</button>
+        <button type="submit" name="update">Update Username</button>
         <button type="submit" name="logout">Logout</button>
+        <a href="passwordreset.php" >Forgot password?</a>
       </form>
     </main>
   </body>

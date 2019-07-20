@@ -83,6 +83,11 @@ button {
   margin: 1em;
 }
 
+input#remember{
+  align-self:flex-end;
+  width:1em;
+  height:1em;
+}
 header {
   background-color: #d89f6a;
   height: 5em;
