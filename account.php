@@ -136,7 +136,6 @@ include "includes/library.php";
           />
         </div>
         <button type="submit" name="update">Update Email</button>
-        <button type="submit" name="logout">Logout</button>
         <a href="passwordreset.php" >Forgot password?</a>
       </form>
     </main>
