@@ -22,12 +22,127 @@
    include "includes/library.php";
  $pdo=connectdb();
  $base_location = "../../www_data/";
+ //
   $sql = "SELECT * FROM bcwBooks_bookData WHERE id=7";
   $stmt = $pdo->prepare($sql);
 $stmt->execute();
-$book = $stmt->fetch(PDO::FETCH_ASSOC);
-$cover_filename = $book['cover_filename'];
-$cover_path = $base_location. $cover_filename;
+$book1 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename1 = $book1['cover_filename'];
+$book1ID = $book1['id'];
+$cover_path1 = $base_location. $cover_filename1;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=11";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book2 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename2 = $book2['cover_filename'];
+$book2ID = $book2['id'];
+$cover_path2 = $base_location. $cover_filename2;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=12";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book3 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename3 = $book3['cover_filename'];
+$book3ID = $book3['id'];
+$cover_path3 = $base_location. $cover_filename3;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=13";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book4 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename4 = $book4['cover_filename'];
+$book4ID = $book4['id'];
+$cover_path4 = $base_location. $cover_filename4;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=14";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book5 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename5 = $book5['cover_filename'];
+$book5ID = $book5['id'];
+$cover_path5 = $base_location. $cover_filename5;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=15";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book6 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename6 = $book6['cover_filename'];
+$book6ID = $book6['id'];
+$cover_path6 = $base_location. $cover_filename6;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=16";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book7 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename7 = $book7['cover_filename'];
+$book7ID = $book7['id'];
+$cover_path7 = $base_location. $cover_filename7;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=17";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book8 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename8 = $book8['cover_filename'];
+$book8ID = $book8['id'];
+$cover_path8 = $base_location. $cover_filename8;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=19";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book9 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename9 = $book9['cover_filename'];
+$book9ID = $book9['id'];
+$cover_path9 = $base_location. $cover_filename9;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=20";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book10 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename10 = $book10['cover_filename'];
+$book10ID = $book10['id'];
+$cover_path10 = $base_location. $cover_filename10;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=21";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book11 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename11 = $book11['cover_filename'];
+$book11ID = $book11['id'];
+$cover_path11 = $base_location. $cover_filename11;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=22";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book12 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename12 = $book12['cover_filename'];
+$book12ID = $book12['id'];
+$cover_path12 = $base_location. $cover_filename12;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=23";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book13 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename13 = $book13['cover_filename'];
+$book13ID = $book13['id'];
+$cover_path13 = $base_location. $cover_filename13;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=24";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book14 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename14 = $book14['cover_filename'];
+$book14ID = $book14['id'];
+$cover_path14 = $base_location. $cover_filename14;
+//
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=25";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$book15 = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename15 = $book15['cover_filename'];
+$book15ID = $book15['id'];
+$cover_path15 = $base_location. $cover_filename15;
+//
 
 if(isset($_POST['delete'])){
   $sql = "DELETE FROM bcwBooks_bookData WHERE id=?";
@@ -82,20 +197,108 @@ $stmt->execute([$_POST["delete"]]);
 
       <div id="shelfDiv">
         <div class="shelfOuter">
-          <form id='coverForm' action="viewInfo.php" method = "post">
-          <button type="submit" name="coverButton" value = "7" class="coverButton"><img
-                    src="<?php echo "$cover_path"; ?>"
+          <form id='coverForm' action="viewInfo.php" method = "post" class = "coverForm">
+          <button type="submit" name="coverButton" value ="<?php echo "$book1ID"; ?>" class="coverButton"><img
+                    src="<?php echo "$cover_path1"; ?>"
                     alt="book cover"
                     height="240"
                     width="140"/>
+</button>
+<button type="submit" name="coverButton" value ="<?php echo "$book2ID"; ?>" class="coverButton"><img
+          src="<?php echo "$cover_path2"; ?>"
+          alt="book cover"
+          height="240"
+          width="140"/>
+</button>
+<button type="submit" name="coverButton" value ="<?php echo "$book3ID"; ?>" class="coverButton"><img
+          src="<?php echo "$cover_path3"; ?>"
+          alt="book cover"
+          height="240"
+          width="140"/>
+</button>
+<button type="submit" name="coverButton" value ="<?php echo "$book4ID"; ?>" class="coverButton"><img
+          src="<?php echo "$cover_path4"; ?>"
+          alt="book cover"
+          height="240"
+          width="140"/>
+</button>
+<button type="submit" name="coverButton" value ="<?php echo "$book5ID"; ?>" class="coverButton"><img
+          src="<?php echo "$cover_path5"; ?>"
+          alt="book cover"
+          height="240"
+          width="140"/>
 </button>
 </form>
           <div class="shelfInner"></div>
         </div>
         <div class="shelfOuter" id="shelfOuter2">
+          <form id='coverForm' action="viewInfo.php" method = "post" class = "coverForm">
+            <button type="submit" name="coverButton" value ="<?php echo "$book6ID"; ?>" class="coverButton"><img
+                      src="<?php echo "$cover_path6"; ?>"
+                      alt="book cover"
+                      height="240"
+                      width="140"/>
+            </button>
+            <button type="submit" name="coverButton" value ="<?php echo "$book7ID"; ?>" class="coverButton"><img
+                      src="<?php echo "$cover_path7"; ?>"
+                      alt="book cover"
+                      height="240"
+                      width="140"/>
+            </button>
+            <button type="submit" name="coverButton" value ="<?php echo "$book8ID"; ?>" class="coverButton"><img
+                      src="<?php echo "$cover_path8"; ?>"
+                      alt="book cover"
+                      height="240"
+                      width="140"/>
+            </button>
+            <button type="submit" name="coverButton" value ="<?php echo "$book9ID"; ?>" class="coverButton"><img
+                      src="<?php echo "$cover_path9"; ?>"
+                      alt="book cover"
+                      height="240"
+                      width="140"/>
+            </button>
+            <button type="submit" name="coverButton" value ="<?php echo "$book10ID"; ?>" class="coverButton"><img
+                      src="<?php echo "$cover_path10"; ?>"
+                      alt="book cover"
+                      height="240"
+                      width="140"/>
+            </button>
+          </form>
           <div class="shelfInner"></div>
         </div>
         <div class="shelfOuter" id="shelfOuter3">
+          <form id='coverForm' action="viewInfo.php" method = "post" class = "coverForm">
+            <button type="submit" name="coverButton" value ="<?php echo "$book11ID"; ?>" class="coverButton"><img
+                      src="<?php echo "$cover_path11"; ?>"
+                      alt="book cover"
+                      height="240"
+                      width="140"/>
+            </button>
+            <button type="submit" name="coverButton" value ="<?php echo "$book12ID"; ?>" class="coverButton"><img
+                      src="<?php echo "$cover_path12"; ?>"
+                      alt="book cover"
+                      height="240"
+                      width="140"/>
+            </button>
+            <button type="submit" name="coverButton" value ="<?php echo "$book13ID"; ?>" class="coverButton"><img
+                      src="<?php echo "$cover_path13"; ?>"
+                      alt="book cover"
+                      height="240"
+                      width="140"/>
+            </button>
+            <button type="submit" name="coverButton" value ="<?php echo "$book14ID"; ?>" class="coverButton"><img
+                      src="<?php echo "$cover_path14"; ?>"
+                      alt="book cover"
+                      height="240"
+                      width="140"/>
+            </button>
+            <button type="submit" name="coverButton" value ="<?php echo "$book15ID"; ?>" class="coverButton"><img
+                      src="<?php echo "$cover_path15"; ?>"
+                      alt="book cover"
+                      height="240"
+                      width="140"/>
+            </button>
+          </form>
           <div class="shelfInner"></div>
         </div>
         <nav id="shelfNav">

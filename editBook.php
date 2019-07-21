@@ -23,15 +23,7 @@
  $errors = array();
  $new_location = "../../www_data/";
  $pdo=connectdb();
- if (isset($_POST['editBook'])) {
-$sql = "UPDATE bcwBooks_bookData SET title=?, tags=?, author=?, description=?, publication_date=? WHERE id=?";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $_POST["bookDescription"], /*'date2'*/$_POST["bookPublicationDate"], /*'$_SESSION['user']'*/$_POST["editButton"]]);
-//  $stmt->execute(['testFileName','testCoverFileName','testTitle','TestTags','testAuthor','testDescription','2019-07-06','testUser']);
 
-
-}
- else{
  $base_location = "../../www_data/";
   $sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
   $stmt = $pdo->prepare($sql);
@@ -47,7 +39,7 @@ $stmt->execute([$_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $
  $tags = $book['tags'];
  $pubDate = $book['publication_date'];
 
-}
+
 
   ?>
 
@@ -80,7 +72,7 @@ $stmt->execute([$_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $
     </header>
 
     <div class="displayBox" id="addBookDisplayBox">
-      <form enctype="multipart/form-data" class="enclosedForm" id="uploadForm" action = "<?php echo $_SERVER['PHP_SELF'];?>" method = "post">
+      <form enctype="multipart/form-data" class="enclosedForm" id="uploadForm" action = "viewInfo.php" method = "post">
         <div class="addBookFormDiv">
           <label for="bookTitle" class="addBookLabel">Title: </label>
           <input
@@ -125,7 +117,7 @@ $stmt->execute([$_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $
           />
         </div>
         <div class="addBookFormDiv">
-          <input type="submit" name="editBook" />
+          <button type="submit" name="editBook" value = "<?php echo $_POST["editButton"]; ?>">Submit</button>
         </div>
       </form>
     </div>

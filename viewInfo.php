@@ -20,6 +20,25 @@
   include "includes/library.php";
 $pdo=connectdb();
 $base_location = "../../www_data/";
+if (isset($_POST['editBook'])) {
+$sql = "UPDATE bcwBooks_bookData SET title=?, tags=?, author=?, description=?, publication_date=? WHERE id=?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $_POST["bookDescription"], /*'date2'*/$_POST["bookPublicationDate"], /*'$_SESSION['user']'*/$_POST["editBook"]]);
+//  $stmt->execute(['testFileName','testCoverFileName','testTitle','TestTags','testAuthor','testDescription','2019-07-06','testUser']);
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$_POST["editBook"]]);
+$book = $stmt->fetch(PDO::FETCH_ASSOC);
+$cover_filename = $book['cover_filename'];
+$cover_path = $base_location. $cover_filename;
+$title = $book['title'];
+$author = $book['author'];
+$description = $book['description'];
+$filename = $book['filename'];
+$tags = $book['tags'];
+$pubDate = $book['publication_date'];
+}
+else{
  $sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
  $stmt = $pdo->prepare($sql);
 $stmt->execute([$_POST["coverButton"]]);
@@ -32,6 +51,8 @@ $description = $book['description'];
 $filename = $book['filename'];
 $tags = $book['tags'];
 $pubDate = $book['publication_date'];
+}
+
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +96,9 @@ $pubDate = $book['publication_date'];
       <nav id="iconDiv">
         <!-- Icons from https://icons8.com/icons -->
         <form id="editButtonForm" method="post" action="editBook.php">
-        <button type="submit" name="editButton" value = "<?php echo $_POST["coverButton"]; ?>" class="viewButtons"><img
+        <button type="submit" name="editButton" value = "<?php if(isset($_POST["coverButton"])){echo $_POST["coverButton"];} else{
+          echo $_POST["editBook"];
+        }?>" class="viewButtons"><img
             src="images/edit.png"
             alt="Edit book icon"
             height="30"
@@ -83,7 +106,9 @@ $pubDate = $book['publication_date'];
         /></button>
       </form>
       <form id="deleteButtonForm" method="post" action="deleteBook.php">
-      <button type="submit" name="deleteButton" value = "<?php echo $_POST["coverButton"]; ?>" class="viewButtons"><img
+      <button type="submit" name="deleteButton" value = "<?php if(isset($_POST["coverButton"])){echo $_POST["coverButton"];} else{
+        echo $_POST["editBook"];
+      }?>" class="viewButtons"><img
           src="images/trash.png"
           alt="Delete book icon"
           height="30"
