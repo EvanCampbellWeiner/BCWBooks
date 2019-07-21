@@ -73,20 +73,7 @@
     <script src="https://kit.fontawesome.com/c155ad6c68.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- fallback for jQuery if CDN is unavailable -->
-    <script>
-      window.jQuery ||
-        document.write('<script src="scripts/jquery.js"><\/script>');
-    </script>
-
-    <!-- Example - Relative Path - -->
-    <script src="scripts/script.js"></script>
-
-    <!-- Stuff for password strength validator -->
-    <script src="scripts/password_strength_lightweight.js"></script>
-    <link rel="stylesheet" href="css/password_strength.css">
   </head>
 
   <body>
@@ -114,7 +101,7 @@
           </div>
         <?php endif;?>
         <div class = "myPassword">
-          <label for="password">Password</label>
+          <label for="password">Password:<br  /></label>
         </div>
         <div>
           <label for="password2">Re-type Password:</label>
@@ -129,5 +116,19 @@
         <input type="submit" name="submit" value="Register" id="submit"/>
       </form>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- fallback for jQuery if CDN is unavailable -->
+    <script>
+      window.jQuery ||
+        document.write('<script src="scripts/jquery.js"><\/script>');
+    </script>
+
+    <!-- Example - Relative Path - -->
+    <script src="scripts/script.js"></script>
+
+    <!-- Stuff for password strength validator -->
+    <script src="scripts/password_strength_lightweight.js"></script>
+    <link rel="stylesheet" href="css/password_strength.css">
   </body>
 </html>
