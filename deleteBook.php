@@ -22,9 +22,9 @@
   include "includes/library.php";
 $pdo=connectdb();
 $base_location = "../../www_data/";
- $sql = "SELECT * FROM bcwBooks_bookData WHERE id=7";
+ $sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
  $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$_POST["deleteButton"]]);
 $book = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename = $book['cover_filename'];
 $cover_path = $base_location. $cover_filename;
@@ -61,7 +61,10 @@ $cover_path = $base_location. $cover_filename;
         height="640"
         width="400"
       />
-      <a href="">Cancel</a>
+      <form id='cancelForm' action="viewInfo.php" method = "post">
+      <button type="submit" name="coverButton" value = "<?php echo $_POST["deleteButton"]; ?>">Cancel
+</button>
+</form>
       <div id="displayBoxInner">
         <form>
           <button type="button">Delete</button>
