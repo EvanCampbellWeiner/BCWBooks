@@ -60,6 +60,15 @@ form div {
   background-color: #a36a36;
 }
 
+form div.myPassword{
+  background-color:#a36a36;
+  width:auto;
+}
+form div.myPassword input{
+  background-color:white;
+  width:auto;
+}
+
 form button {
   margin: 0.5em;
 }
@@ -89,6 +98,8 @@ input#remember{
   width:1em;
   height:1em;
 }
+
+
 header {
   background-color: #d89f6a;
   height: 5em;

@@ -83,6 +83,10 @@
 
     <!-- Example - Relative Path - -->
     <script src="scripts/script.js"></script>
+
+    <!-- Stuff for password strength validator -->
+    <script src="scripts/password_strength_lightweight.js"></script>
+    <link rel="stylesheet" href="css/password_strength.css">
   </head>
 
   <body>
@@ -109,17 +113,9 @@
             <?php echo $passerror;?>
           </div>
         <?php endif;?>
-        <div>
-          <label for="password">Password:</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="************"
-            required
-          />
+        <div class = "myPassword">
+          <label for="password">Password</label>
         </div>
-
         <div>
           <label for="password2">Re-type Password:</label>
           <input

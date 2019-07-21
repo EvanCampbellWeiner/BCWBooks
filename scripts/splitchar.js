@@ -1,9 +1,14 @@
 /**
  * Splitchar.js
  * @author emisfera - Razvan B.
+ Email: balosinrazvan@yahoo.com
+GitHub: https://github.com/razvanbalosin
+Work: FrontEnd Developer
+https://github.com/razvanbalosin/Splitchar.js
  */
 
-$.fn.splitchar = function () {   
+
+$.fn.splitchar = function () {
   $('.splitchar').each(function (index) {
     var $main = $(this);
     var characters = $main.text().split('');
@@ -14,3 +19,6 @@ $.fn.splitchar = function () {
     });
   });
 };
+$(document).ready(function(){
+    $(".splitchar").splitchar();
+});

@@ -23,15 +23,29 @@
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <!-- reset.css file taken from assignment 1 -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/splitchar.css" rel="stylesheet" type="text/css">
     <!-- Script for using icons from FontAwesome.com -->
     <script src="https://kit.fontawesome.com/c155ad6c68.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- fallback for jQuery if CDN is unavailable -->
+    <script>
+      window.jQuery ||
+        document.write('<script src="scripts/jquery.js"><\/script>');
+    </script>
+
+    <!-- Script for using icons from FontAwesome.com -->
+    <script src="https://kit.fontawesome.com/c155ad6c68.js"></script>
+
+      <script type="text/javascript" src="scripts/splitchar.js"></script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body>
     <header class="fullHeader">
-      <h1>BCW Books</h1>
+      <h1 class = "splitchar vertical">BCW Books</h1>
       <a href="index.php" id="indexButton">Home</a>
       <?php
       if(!isset($_SESSION['user'])):
@@ -46,7 +60,7 @@
     </header>
     <div id="content">
       <main>
-        <h2>Welcome!</h2>
+        <h2 class = "splitchar vertical">Welcome!</h2>
         <h3>BCW Books: The only place to book your books.</h3>
       </main>
       <aside>
