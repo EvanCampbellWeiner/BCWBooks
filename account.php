@@ -82,19 +82,7 @@ include "includes/library.php";
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <!-- reset.css file taken from assignment 1 -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <!-- Script for using icons from FontAwesome.com -->
-    <script src="https://kit.fontawesome.com/c155ad6c68.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- fallback for jQuery if CDN is unavailable -->
-    <script>
-      window.jQuery ||
-        document.write('<script src="scripts/jquery.js"><\/script>');
-    </script>
-
-    <!-- Example - Relative Path - -->
-    <script src="scripts/script.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
@@ -116,8 +104,13 @@ include "includes/library.php";
     </header>
     <main>
       <form id="updateAccount" action="account.php" method="post">
+        <h3>Change Email</h2>
+          <div>
+            Previous Email: 
+              <?php echo $email ?>
+          </div>
         <div>
-          <label for="email">Email:</label>
+          <label for="email">New Email:</label>
           <input
             type="email"
             name="email"
@@ -126,7 +119,7 @@ include "includes/library.php";
           />
         </div>
         <div>
-          <label for="password">Password:</label>
+          <label for="password">Enter Password:</label>
           <input
             type="password"
             name="password"
@@ -135,9 +128,21 @@ include "includes/library.php";
             required
           />
         </div>
-        <button type="submit" name="update">Update Email</button>
+        <button type="submit" name="update" id = "resetEmail">Update Email</button>
         <a href="passwordreset.php" >Forgot password?</a>
       </form>
     </main>
+    <!-- Script for using icons from FontAwesome.com -->
+    <script src="https://kit.fontawesome.com/c155ad6c68.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- fallback for jQuery if CDN is unavailable -->
+    <script>
+      window.jQuery ||
+        document.write('<script src="scripts/jquery.js"><\/script>');
+    </script>
+    <!-- Example - Relative Path - -->
+    <script src="scripts/script.js"></script>
   </body>
 </html>

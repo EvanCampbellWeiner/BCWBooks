@@ -127,7 +127,7 @@
       <form id="pswreset" action="passwordreset.php" method="POST">
         <div>
           <label for="code">Code:</label>
-          <input type="text" name="code" id="code" placeholder="A23ri9F" />
+          <input type="text" name="code" id="code" placeholder="A23ri9F"  required/>
         </div>
         <div>
           <label for="email">Email:</label>
@@ -136,6 +136,7 @@
             name="email"
             id="email"
             placeholder="john@smith.com"
+            required
           />
         </div>
         <div>
