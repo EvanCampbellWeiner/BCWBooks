@@ -24,21 +24,18 @@
  $new_location = "../../www_data/";
  $pdo=connectdb();
  if (isset($_POST['editBook'])) {
-
-
-
 $sql = "UPDATE bcwBooks_bookData SET title=?, tags=?, author=?, description=?, publication_date=? WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([$_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $_POST["bookDescription"], /*'date2'*/$_POST["bookPublicationDate"], /*'$_SESSION['user']'*/'7']);
+$stmt->execute([$_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $_POST["bookDescription"], /*'date2'*/$_POST["bookPublicationDate"], /*'$_SESSION['user']'*/$_POST["editButton"]]);
 //  $stmt->execute(['testFileName','testCoverFileName','testTitle','TestTags','testAuthor','testDescription','2019-07-06','testUser']);
 
 
 }
  else{
  $base_location = "../../www_data/";
-  $sql = "SELECT * FROM bcwBooks_bookData WHERE id=7";
+  $sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
   $stmt = $pdo->prepare($sql);
- $stmt->execute();
+ $stmt->execute([$_POST["editButton"]]);
  $book = $stmt->fetch(PDO::FETCH_ASSOC);
  $cover_filename = $book['cover_filename'];
  $cover_path = $base_location. $cover_filename;

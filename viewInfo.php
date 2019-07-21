@@ -20,9 +20,9 @@
   include "includes/library.php";
 $pdo=connectdb();
 $base_location = "../../www_data/";
- $sql = "SELECT * FROM bcwBooks_bookData WHERE id=7";
+ $sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
  $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$_POST["coverButton"]]);
 $book = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename = $book['cover_filename'];
 $cover_path = $base_location. $cover_filename;
@@ -64,7 +64,7 @@ $pubDate = $book['publication_date'];
       <h3>By: <?php echo "$author"; ?></h3>
       <img
         src="<?php echo "$cover_path"; ?>"
-        alt="sample book cover"
+        alt="book cover"
         height="640"
         width="400"
       />
@@ -74,20 +74,22 @@ $pubDate = $book['publication_date'];
       <p>Publication Date: <?php echo "$pubDate"; ?></p>
       <nav id="iconDiv">
         <!-- Icons from https://icons8.com/icons -->
-        <a href="editBook.php" id="editBook" class="viewBookIcons"
-          ><img
+        <form id="editButtonForm" method="post" action="editBook.php">
+        <button type="submit" name="editButton" value = "<?php echo $_POST["coverButton"]; ?>" class="viewButtons"><img
             src="images/edit.png"
             alt="Edit book icon"
             height="30"
             width="30"
-        /></a>
-        <a href="deleteBook.php" id="deleteBook" class="viewBookIcons"
-          ><img
-            src="images/trash.png"
-            alt="delete book icon"
-            height="30"
-            width="30"
-        /></a>
+        /></button>
+      </form>
+      <form id="deleteButtonForm" method="post" action="deleteBook.php">
+      <button type="submit" name="deleteButton" value = "<?php echo $_POST["coverButton"]; ?>" class="viewButtons"><img
+          src="images/trash.png"
+          alt="Delete book icon"
+          height="30"
+          width="30"
+      /></button>
+    </form>
       </nav>
     </div>
   </body>

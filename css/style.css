@@ -12,6 +12,7 @@ body {
   background-color: #49220b;
   font-family: "Century", "Georgia", serif;
 }
+
 main {
   background-color: #d89f6a;
   padding: 1em;
@@ -60,13 +61,14 @@ form div {
   background-color: #a36a36;
 }
 
-form div.myPassword{
-  background-color:#a36a36;
-  width:auto;
+form div.myPassword {
+  background-color: #a36a36;
+  width: auto;
 }
-form div.myPassword input{
-  background-color:white;
-  width:auto;
+
+form div.myPassword input {
+  background-color: white;
+  width: auto;
 }
 
 form button {
@@ -107,7 +109,6 @@ input#remember {
   width: 1em;
   height: 1em;
 }
-
 
 header {
   background-color: #d89f6a;
@@ -161,9 +162,11 @@ header a {
   order: 4;
   /*  left: 29em; */
 }
+
 #loginButton {
   order: 6;
 }
+
 #searchButton {
   background-color: #a36a36;
   border-radius: 0.7em;
@@ -246,8 +249,7 @@ select {
   flex-direction: row;
 }
 
-#addBook {
-}
+#addBook {}
 
 ul {
   display: inline-block;
@@ -423,8 +425,9 @@ nav a {
 h2 {
   font-size: 8em;
 }
+
 h3 {
   font-size: 3em;
 }
-footer {
-}
+
+footer {}

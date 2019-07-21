@@ -76,12 +76,12 @@ $cover_path = $base_location. $cover_filename;
 
       <div id="shelfDiv">
         <div class="shelfOuter">
-          <form id='coverForm' action="" method = "post">
-          <button type="submit" name="coverButton" value = "7" id="7" class="coverButton"><img
+          <form id='coverForm' action="viewInfo.php" method = "post">
+          <button type="submit" name="coverButton" value = "7" class="coverButton"><img
                     src="<?php echo "$cover_path"; ?>"
                     alt="book cover"
                     height="240"
-                    width="140"/></input>
+                    width="140"/>
 </button>
 </form>
           <div class="shelfInner"></div>
