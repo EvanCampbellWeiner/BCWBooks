@@ -134,9 +134,9 @@
             ?>
           <span class="errors"> <?php  echo $errors; ?> </span>
      <?php endif; ?>
-
+<a href="passwordreset.php" >Forgot password?</a>
       </form>
-      <a href="passwordreset.php" >Forgot password?</a>
+    
     </main>
   </body>
 </html>

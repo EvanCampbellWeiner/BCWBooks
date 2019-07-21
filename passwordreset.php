@@ -23,7 +23,6 @@
   {
     //if we haven't made a code yet, create the code and email it to the recipient
     if(!isset($_SESSION['code'])){
-      var_dump($_POST);
     $random = uniqid();
     $_SESSION['code'] =  $random;
     require_once "Mail.php";  //this includes the pear SMTP mail library
@@ -93,16 +92,7 @@
     <script src="https://kit.fontawesome.com/c155ad6c68.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- fallback for jQuery if CDN is unavailable -->
-    <script>
-      window.jQuery ||
-        document.write('<script src="scripts/jquery.js"><\/script>');
-    </script>
-
-    <!-- Example - Relative Path - -->
-    <script src="scripts/script.js"></script>
   </head>
  <!-- all content on the page -->
   <body>
@@ -168,9 +158,16 @@
             required
           />
         </div>
-        <input type="submit" name="forgotpassword" value="Change Password"/>
+        <div id="resetPassword"><input type="submit" name="forgotpassword" value="Change Password"/></div>
       </form>
     <?php endif;?>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- fallback for jQuery if CDN is unavailable -->
+    <script>window.jQuery ||document.write('<script src="scripts/jquery.js"><\/script>');</script>
+
+    <!-- Example - Relative Path - -->
+    <script src="scripts/script.js"></script>
   </body>
 </html>
