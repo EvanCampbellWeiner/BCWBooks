@@ -87,6 +87,13 @@ button {
   font-family: "Century", "Georgia", serif;
 }
 
+.coverForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: purple;
+}
+
 .coverButton {
   border-radius: 0em;
   border: none;
@@ -214,7 +221,7 @@ select {
 
 #shelfDiv {
   padding-top: 5em;
-  height: 40em;
+  height: 43em;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -226,7 +233,7 @@ select {
   background-color: #a36a36;
   border-style: solid;
   border-radius: 0.5em;
-  height: 12.5em;
+  height: 13.5em;
   width: 60em;
   display: flex;
   flex-direction: column;
