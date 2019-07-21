@@ -40,7 +40,7 @@ $cover_path = $base_location. $cover_filename;
     <title>Main Page</title>
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <!-- reset.css file taken from assignment 1 -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
     <!-- Stylesheet link for using icons from FontAwesome.com -->
     <link
       rel="stylesheet"
@@ -48,6 +48,9 @@ $cover_path = $base_location. $cover_filename;
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
@@ -68,20 +71,19 @@ $cover_path = $base_location. $cover_filename;
       <select name="sort" id="sortList">
         <option value="name">Name (default)</option>
         <option value="dateAdded">Date Added</option>
-        <option value="lastModified">Last Modified</option>
       </select>
       <p>Sort By:</p>
 
       <div id="shelfDiv">
         <div class="shelfOuter">
-          <a href="viewInfo.php">
-            <img
-              src="<?php echo "$cover_path"; ?>"
-              alt="book cover"
-              height="240"
-              width="140"
-            />
-          </a>
+          <form id='coverForm' action="" method = "post">
+          <button type="submit" name="coverButton" value = "7" id="7" class="coverButton"><img
+                    src="<?php echo "$cover_path"; ?>"
+                    alt="book cover"
+                    height="240"
+                    width="140"/></input>
+</button>
+</form>
           <div class="shelfInner"></div>
         </div>
         <div class="shelfOuter" id="shelfOuter2">
