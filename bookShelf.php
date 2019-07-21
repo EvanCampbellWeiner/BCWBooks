@@ -29,6 +29,12 @@ $book = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename = $book['cover_filename'];
 $cover_path = $base_location. $cover_filename;
 
+if(isset($_POST['delete'])){
+  $sql = "DELETE FROM bcwBooks_bookData WHERE id=?";
+  $stmt = $pdo->prepare($sql);
+$stmt->execute([$_POST["delete"]]);
+}
+
 //echo $cover_path;
 
 

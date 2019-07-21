@@ -66,9 +66,9 @@ $cover_path = $base_location. $cover_filename;
 </button>
 </form>
       <div id="displayBoxInner">
-        <form>
-          <button type="button">Delete</button>
-          <input type="checkbox" name="deleteConfirm" value="deleteConfirm" />
+        <form method = "post" action="bookShelf.php">
+          <button type="submit" id = "deletion" name="delete" value="<?php echo $_POST["deleteButton"]; ?>">Delete</button>
+          <input type="checkbox" name="deleteConfirm" value="deleteConfirm" required/>
           Yes, I want to delete this book<br />
         </form>
       </div>
