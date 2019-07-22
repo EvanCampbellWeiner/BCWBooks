@@ -27,10 +27,10 @@
    if(isset($_FILES['ebookToUpload']) && isset($_FILES['ebookCover'])){
      $ebookKey = uniqid();
      $coverKey = uniqid();
-     $destination = $new_location. $ebookKey. basename($_FILES["ebookToUpload"]["name"]);
-    $cover_destination = $new_location. $coverKey. basename($_FILES["ebookCover"]["name"]);
-     $ebookFileName = $ebookKey. basename($_FILES["ebookToUpload"]["name"]);
-      $coverFileName = $coverKey. basename($_FILES["ebookCover"]["name"]);
+     $destination = $new_location. $ebookKey. urlencode(basename($_FILES["ebookToUpload"]["name"]));
+    $cover_destination = $new_location. $coverKey. urlencode(basename($_FILES["ebookCover"]["name"]));
+     $ebookFileName = $ebookKey. urlencode(basename($_FILES["ebookToUpload"]["name"]));
+      $coverFileName = $coverKey. urlencode(basename($_FILES["ebookCover"]["name"]));
       $toExplode = $_FILES['ebookToUpload']['name'];
   $file_ext = strtolower(end(explode('.', $toExplode)));
   $file_size = $_FILES['ebookToUpload']['size'];

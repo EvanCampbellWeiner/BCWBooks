@@ -256,7 +256,8 @@ select {
   flex-direction: row;
 }
 
-#addBook {}
+#addBook {
+}
 
 ul {
   display: inline-block;
@@ -271,6 +272,17 @@ ul {
 }
 
 nav a {
+  padding: 0.05em;
+  text-decoration: none;
+  color: black;
+  border-style: solid;
+  border-width: 0.1em;
+  border-radius: 0.3em;
+  border-color: black;
+  background-color: #a36a36;
+}
+
+.shelfButton {
   padding: 0.05em;
   text-decoration: none;
   color: black;
@@ -428,6 +440,19 @@ nav a {
   border-color: black;
   background-color: #a36a36;
 }
+.shelfButtons {
+  background-color: #a36a36;
+  border-style: solid;
+  border-width: 0.1em;
+  border-color: black;
+  border-radius: 0.5em;
+  height: 3.5em;
+  width: 4em;
+  font-size: 0.9em;
+}
+
+#shelfNavForm {
+}
 
 h2 {
   font-size: 8em;
@@ -437,4 +462,5 @@ h3 {
   font-size: 3em;
 }
 
-footer {}
+footer {
+}
