@@ -22,126 +22,184 @@
    include "includes/library.php";
  $pdo=connectdb();
  $base_location = "../../www_data/";
+ $sql = "SELECT * FROM bcwBooks_bookData WHERE user=?";
+ $stmt = $pdo->prepare($sql);
+$stmt->execute([$_SESSION["user"]]);
+$userBooks = $stmt->fetchAll();
+
+$coverCount = 0;
+$idArray = array();
+
+  foreach($userBooks as $row){
+$idArray[$coverCount] = $row["id"];
+$coverCount++;
+}
+
  //
-  $sql = "SELECT * FROM bcwBooks_bookData WHERE id=7";
+ if(isset($idArray[0])){
+  $sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
   $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[0]]);
 $book1 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename1 = $book1['cover_filename'];
 $book1ID = $book1['id'];
+$book1Title = $book1['title'];
 $cover_path1 = $base_location. $cover_filename1;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=11";
+if(isset($idArray[1])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[1]]);
 $book2 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename2 = $book2['cover_filename'];
 $book2ID = $book2['id'];
+$book2Title = $book2['title'];
 $cover_path2 = $base_location. $cover_filename2;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=12";
+if(isset($idArray[2])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[2]]);
 $book3 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename3 = $book3['cover_filename'];
 $book3ID = $book3['id'];
+$book3Title = $book3['title'];
 $cover_path3 = $base_location. $cover_filename3;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=13";
+if(isset($idArray[3])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[3]]);
 $book4 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename4 = $book4['cover_filename'];
 $book4ID = $book4['id'];
+$book4Title = $book4['title'];
 $cover_path4 = $base_location. $cover_filename4;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=14";
+if(isset($idArray[4])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[4]]);
 $book5 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename5 = $book5['cover_filename'];
 $book5ID = $book5['id'];
+$book5Title = $book5['title'];
 $cover_path5 = $base_location. $cover_filename5;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=15";
+if(isset($idArray[5])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[5]]);
 $book6 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename6 = $book6['cover_filename'];
 $book6ID = $book6['id'];
+$book6Title = $book6['title'];
 $cover_path6 = $base_location. $cover_filename6;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=16";
+if(isset($idArray[6])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[6]]);
 $book7 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename7 = $book7['cover_filename'];
 $book7ID = $book7['id'];
+$book7Title = $book7['title'];
 $cover_path7 = $base_location. $cover_filename7;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=17";
+if(isset($idArray[7])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[7]]);
 $book8 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename8 = $book8['cover_filename'];
 $book8ID = $book8['id'];
+$book8Title = $book8['title'];
 $cover_path8 = $base_location. $cover_filename8;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=19";
+if(isset($idArray[8])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[8]]);
 $book9 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename9 = $book9['cover_filename'];
 $book9ID = $book9['id'];
+$book9Title = $book9['title'];
 $cover_path9 = $base_location. $cover_filename9;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=20";
+if(isset($idArray[9])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[9]]);
 $book10 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename10 = $book10['cover_filename'];
 $book10ID = $book10['id'];
+$book10Title = $book10['title'];
 $cover_path10 = $base_location. $cover_filename10;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=21";
+if(isset($idArray[10])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[10]]);
 $book11 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename11 = $book11['cover_filename'];
 $book11ID = $book11['id'];
+$book11Title = $book11['title'];
 $cover_path11 = $base_location. $cover_filename11;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=22";
+if(isset($idArray[11])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[11]]);
 $book12 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename12 = $book12['cover_filename'];
 $book12ID = $book12['id'];
+$book12Title = $book12['title'];
 $cover_path12 = $base_location. $cover_filename12;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=23";
+if(isset($idArray[12])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[12]]);
 $book13 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename13 = $book13['cover_filename'];
 $book13ID = $book13['id'];
+$book13Title = $book13['title'];
 $cover_path13 = $base_location. $cover_filename13;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=24";
+if(isset($idArray[13])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[13]]);
 $book14 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename14 = $book14['cover_filename'];
 $book14ID = $book14['id'];
+$book14Title = $book14['title'];
 $cover_path14 = $base_location. $cover_filename14;
+}
 //
-$sql = "SELECT * FROM bcwBooks_bookData WHERE id=25";
+if(isset($idArray[14])){
+$sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute([$idArray[14]]);
 $book15 = $stmt->fetch(PDO::FETCH_ASSOC);
 $cover_filename15 = $book15['cover_filename'];
 $book15ID = $book15['id'];
+$book15Title = $book15['title'];
 $cover_path15 = $base_location. $cover_filename15;
+}
 //
 
 if(isset($_POST['delete'])){
@@ -198,12 +256,14 @@ $stmt->execute([$_POST["delete"]]);
       <div id="shelfDiv">
         <div class="shelfOuter">
           <form id='coverForm' action="viewInfo.php" method = "post" class = "coverForm">
-          <button type="submit" name="coverButton" value ="<?php echo "$book1ID"; ?>" class="coverButton"><img
-                    src="<?php echo "$cover_path1"; ?>"
-                    alt="book cover"
-                    height="240"
-                    width="140"/>
+              <?php if(isset($book1)){
+                echo"
+          <button type='submit' name='coverButton' value = "; ?> <?php echo $book1ID; ?> <?php echo" class='coverButton'><img
+                    src= ";?> <?php echo ($cover_path2); ?><?php echo" alt= "; ?> <?php echo $book1Title; ?> <?php echo "
+                    height='240'
+                    width='140'/>
 </button>
+ "; } ?>
 <button type="submit" name="coverButton" value ="<?php echo "$book2ID"; ?>" class="coverButton"><img
           src="<?php echo "$cover_path2"; ?>"
           alt="book cover"
@@ -232,13 +292,16 @@ $stmt->execute([$_POST["delete"]]);
           <div class="shelfInner"></div>
         </div>
         <div class="shelfOuter" id="shelfOuter2">
+
           <form id='coverForm' action="viewInfo.php" method = "post" class = "coverForm">
+
             <button type="submit" name="coverButton" value ="<?php echo "$book6ID"; ?>" class="coverButton"><img
                       src="<?php echo "$cover_path6"; ?>"
                       alt="book cover"
                       height="240"
                       width="140"/>
             </button>
+
             <button type="submit" name="coverButton" value ="<?php echo "$book7ID"; ?>" class="coverButton"><img
                       src="<?php echo "$cover_path7"; ?>"
                       alt="book cover"
