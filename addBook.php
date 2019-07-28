@@ -112,6 +112,7 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
           >
           <input type="file" name="ebookToUpload" id="ebookToUpload" required/>
         </div>
+        <!-- input for ebook cover -->
         <div class="addBookFormDiv">
           <label for="ebookCover" class="addBookLabel"
             >Upload Ebook Cover(.jpg, .png)</label
@@ -127,6 +128,7 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
             id="bookTitle"
           />
         </div>
+        <!-- input for ebook author -->
         <div class="addBookFormDiv">
           <label for="bookAuthor" class="addBookLabel">Author: </label>
           <input
@@ -137,10 +139,12 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
             required
           />
         </div>
+        <!-- input for ebook description -->
         <div class="addBookFormDiv" id="addBookFormTextareaDiv">
           <label class="addBookLabel">Description: </label>
           <textarea name="bookDescription"  rows="10" cols="100"> </textarea>
         </div>
+        <!-- input for ebook tags -->
         <div class="addBookFormDiv">
           <label for="bookTags" class="addBookLabel">Tags: </label>
           <input
@@ -151,6 +155,7 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
             required
           />
         </div>
+        <!-- input for ebook publication date -->
         <div class="addBookFormDiv">
           <label for="bookPublicationDate" class="addBookLabel">Publication Date: </label>
           <input
@@ -161,6 +166,7 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
             required
           />
         </div>
+        <!-- submit button -->
         <div class="addBookFormDiv">
           <input type="submit" name="addBook" />
         </div>
