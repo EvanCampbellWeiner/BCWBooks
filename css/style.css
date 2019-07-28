@@ -21,7 +21,18 @@ main {
   width: 40em;
 }
 
-/* Used on index page to put the image side by side with a border on left*/
+#content main {
+  background-color: #d89f6a;
+  padding: 1em;
+  width: 40em;
+}
+
+#sortButton {
+  height: 1.5em;
+  width: 3em;
+  font-size: 1em;
+}
+
 aside {
   margin: 2em;
   border-left: 1em black solid;
@@ -93,7 +104,7 @@ button {
   border-radius: 0em;
   border: none;
   padding: 0em;
-  margin: 0em;
+  margin: 0 auto;
   height: 240px;
   width: 140px;
 }
@@ -165,7 +176,6 @@ header a {
 #loginButton {
   order: 6;
 }
-
 
 #searchButton {
   background-color: #a36a36;
@@ -446,8 +456,8 @@ nav a {
 
 #shelfNavForm {
 }
-.empty{
-  background-color:#fa5454;
+.empty {
+  background-color: #fa5454;
 }
 
 h2 {

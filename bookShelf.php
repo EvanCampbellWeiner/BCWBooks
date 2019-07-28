@@ -23,15 +23,35 @@
  $pdo=connectdb();
  $base_location = "../../www_data/";
 
+if(isset($_POST['searchSubmit'])){
+  $tags = "%".$_POST['searchField']."%";
+  $sql = "SELECT * FROM bcwBooks_bookData WHERE user=? AND tags LIKE ?";
+  $stmt = $pdo->prepare($sql);
+ $stmt->execute([$_SESSION["user"], $tags]);
+}
+else{
+
  if(isset($_POST['delete'])){
    $sql = "DELETE FROM bcwBooks_bookData WHERE id=?";
    $stmt = $pdo->prepare($sql);
  $stmt->execute([$_POST["delete"]]);
  }
 
+if(isset($_POST['sortSubmit'])){
+  if($_POST['sort'] == "name"){
+     $sql = "SELECT * FROM bcwBooks_bookData WHERE user=? ORDER BY title";
+  }
+  else{
+     $sql = "SELECT * FROM bcwBooks_bookData WHERE user=?";
+  }
+
+}
+else{
  $sql = "SELECT * FROM bcwBooks_bookData WHERE user=?";
+}
  $stmt = $pdo->prepare($sql);
 $stmt->execute([$_SESSION["user"]]);
+}
 $userBooks = $stmt->fetchAll();
 
 $coverCount = 0;
@@ -264,17 +284,21 @@ $cover_path15 = $base_location. $cover_filename15;
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="account.php" id="accountButton">Account</a>
 
-      <form id="searchForm">
-        <input type="text" name="searchField" value="Search" id="searchField" />
-        <input type="submit" value="Search" id="searchButton" />
+      <form id="searchForm" method="post">
+        <input type="text" name="searchField" id="searchField" placeholder="enter tags" action=" <?php echo $_SERVER['PHP_SELF'];?>" />
+        <button type="submit" value="search" name="searchSubmit" id="searchButton" />Search</button>
       </form>
     </header>
     <div id="bodyDiv">
+      <form method = "post" action=" <?php echo $_SERVER['PHP_SELF'];?>">
+                <p>Sort By:</p>
       <select name="sort" id="sortList">
-        <option value="name">Name (default)</option>
-        <option value="dateAdded">Date Added</option>
+        <option value="dateAdded">Date Added (default)</option>
+        <option value="name">Name</option>
       </select>
-      <p>Sort By:</p>
+      <button type="submit" id="sortButton" name="sortSubmit">Select</button>
+    </form>
+
 
       <div id="shelfDiv">
         <div class="shelfOuter">
