@@ -446,6 +446,7 @@ nav a {
 
 #shelfNavForm {
 }
+/*Used for script.js form validation*/
 .empty{
   background-color:#fa5454;
 }
