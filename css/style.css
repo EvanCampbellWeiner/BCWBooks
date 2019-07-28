@@ -21,18 +21,14 @@ main {
   width: 40em;
 }
 
-#content main {
-  background-color: #d89f6a;
-  padding: 1em;
-  width: 40em;
-}
-
+/* Used on index page to put the image side by side with a border on left*/
 aside {
   margin: 2em;
   border-left: 1em black solid;
   padding-left: 5em;
 }
 
+/*Styles the Index page to show main content side by side*/
 #content {
   display: flex;
   justify-content: center;
@@ -63,12 +59,11 @@ form div {
 
 form div.myPassword {
   background-color: #a36a36;
-  width: auto;
 }
 
 form div.myPassword input {
   background-color: white;
-  width: auto;
+  width: 6.5em;
 }
 
 form button {
@@ -124,9 +119,6 @@ header {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-}
-
-.fullHeader {
   padding-left: 7em;
 }
 
@@ -173,6 +165,7 @@ header a {
 #loginButton {
   order: 6;
 }
+
 
 #searchButton {
   background-color: #a36a36;
@@ -452,6 +445,9 @@ nav a {
 }
 
 #shelfNavForm {
+}
+.empty{
+  background-color:#fa5454;
 }
 
 h2 {

@@ -59,7 +59,7 @@
   </head>
 
   <body>
-    <header class="fullHeader" id="addBookHeader">
+    <header id="addBookHeader">
       <h1>Edit Book</h1>
       <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>

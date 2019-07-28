@@ -7,11 +7,11 @@
   A password reset page that allows the user to enter an email, sends an emails to the emails
   with a code, which then can be utilized to update the account password.
 
-
-
   Includes:
   reset.css: the default css file taken from  http://meyerweb.com/eric/tools/css/reset/
   style.css: overarcing css file
+  script.js
+  jquery
   */
   //Includes, Session Start, and $pdo connect
   include "includes/library.php";
@@ -22,30 +22,35 @@
   if(isset($_POST['email']))
   {
     //if we haven't made a code yet, create the code and email it to the recipient
-    if(!isset($_SESSION['code'])){
-    $random = uniqid();
-    $_SESSION['code'] =  $random;
-    require_once "Mail.php";  //this includes the pear SMTP mail library
-    $from = "Password Reset <noreply@loki.trentu.ca>";
-    $to = $_POST['email'];  //put user's email here
-    $subject = "Resetting Password";
-    $body = "Your password reset number is: $random";
-    $host = "smtp.trentu.ca";
-    $headers = array ('From' => $from,
+    if(!isset($_SESSION['code']))
+    {
+      $random = uniqid();
+      $_SESSION['code'] =  $random;
+      require_once "Mail.php";  //this includes the pear SMTP mail library
+      //Write up the variables for the email
+      $from = "Password Reset <noreply@loki.trentu.ca>";
+      $to = $_POST['email'];  //put user's email here
+      $subject = "Resetting Password";
+      $body = "Your password reset number is: $random";
+      $host = "smtp.trentu.ca";
+      //set the headers
+      $headers = array ('From' => $from,
       'To' => $to,
       'Subject' => $subject);
-    $smtp = Mail::factory('smtp',
+      $smtp = Mail::factory('smtp',
       array ('host' => $host));
-
-    $mail = $smtp->send($to, $headers, $body);
-    if (PEAR::isError($mail))
+      //set the mail to create the email
+      $mail = $smtp->send($to, $headers, $body);
+      //output error if error
+      if (PEAR::isError($mail))
       {
-      echo("<p>" . $mail->getMessage() . "</p>");
-     }
+        echo("<p>" . $mail->getMessage() . "</p>");
+      }
+      //else tell them message successfully sent
     else
       {
       echo("<p>Message successfully sent!</p>");
-     }
+      }
    }
 
    //if the user has entered a code then check if its equal to the right code
@@ -54,7 +59,7 @@
         //if it is equal to the right code
         if($_SESSION['code']==$_POST['code'])
         {
-          //check the passwords are equal, hash one, display errors if password has errors
+          //check the passwords are equal, hash one, set passerror to errors if password has errors
           $psw = $_POST['password'];
           $psw2 = $_POST['password2'];
           $email = $_POST['email'];
@@ -84,7 +89,7 @@
 <html lang="en">
   <!-- head of the project with title, links, includes -->
   <head>
-    <title>Login</title>
+    <title>Password Reset</title>
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <!-- reset.css file taken from assignment 1 -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -97,7 +102,7 @@
  <!-- all content on the page -->
   <body>
     <!-- head at top of screen -->
-    <header class="fullHeader">
+    <header>
       <h1>Password Reset</h1>
       <a href="index.php" id="homeButton">Home</a>
       <a href="register.php" id="accountButton">Register</a>
@@ -117,6 +122,7 @@
             type="email"
             name="email"
             id="email"
+            class = "required"
             placeholder="john@smith.com"
           />
         </div>
@@ -127,7 +133,7 @@
       <form id="pswreset" action="passwordreset.php" method="POST">
         <div>
           <label for="code">Code:</label>
-          <input type="text" name="code" id="code" placeholder="A23ri9F"  required/>
+          <input type="text" name="code" id="code" placeholder="A23ri9F" class= "required" required/>
         </div>
         <div>
           <label for="email">Email:</label>
@@ -136,6 +142,7 @@
             name="email"
             id="email"
             placeholder="john@smith.com"
+            class = "required"
             required
           />
         </div>
@@ -145,6 +152,7 @@
             type="password"
             name="password"
             id="password"
+            class = "required"
             placeholder="************"
             required
           />
@@ -155,6 +163,7 @@
             type="password"
             name="password2"
             id="password2"
+            class = "required"
             placeholder="************"
             required
           />
@@ -163,12 +172,13 @@
       </form>
     <?php endif;?>
     </main>
+    <!-- jquery include -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- fallback for jQuery if CDN is unavailable -->
     <script>window.jQuery ||document.write('<script src="scripts/jquery.js"><\/script>');</script>
 
-    <!-- Example - Relative Path - -->
+    <!-- Script.js include -->
     <script src="scripts/script.js"></script>
   </body>
 </html>

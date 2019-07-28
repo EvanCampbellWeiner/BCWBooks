@@ -14,10 +14,30 @@ $("#resetEmail").click(function(ev){
   }
 });
 
+$(".required").on("focusout",function(ev){
+  if($(".required").val()=="")
+  {
+    $(".required").addClass("empty").delay(1000).queue(function(next)
+    {
+      $(".required").removeClass("empty");
+      next();
+    });
+  }
+});
 
+$("#submit").on("click",function(ev){
+  if($(".required").val()==""){
+    $(".required").addClass("empty").delay(1000).queue(function(next)
+    {
+      $(".required").removeClass("empty");
+      next();
+    });
+    ev.preventDefault();
+  }
+})
 
 let valid = true;
-$("#email").on("focusout", function(ev) {
+$(".registeremail").on("focusout", function(ev) {
 //.get and .fail are on same line
 //you call .get and then use function to actually do stuff based on what was returned from php
   $.get(

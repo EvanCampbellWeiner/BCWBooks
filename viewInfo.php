@@ -68,7 +68,7 @@ $pubDate = $book['publication_date'];
   </head>
 
   <body>
-    <header class="fullHeader" id="addBookHeader">
+    <header id="addBookHeader">
       <h1>Book Info</h1>
       <a href="index.php" id="homeButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>

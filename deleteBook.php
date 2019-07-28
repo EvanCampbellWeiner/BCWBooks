@@ -43,7 +43,7 @@ $cover_path = $base_location. $cover_filename;
   </head>
 
   <body>
-    <header class="fullHeader">
+    <header>
       <h1>Delete Book</h1>
       <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>

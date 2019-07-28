@@ -258,7 +258,7 @@ $cover_path15 = $base_location. $cover_filename15;
   </head>
 
   <body>
-    <header class="fullHeader">
+    <header>
       <h1>Library</h1>
       <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>

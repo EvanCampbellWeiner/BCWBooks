@@ -87,7 +87,7 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
   </head>
 
   <body>
-    <header class="fullHeader" id="addBookHeader">
+    <header id="addBookHeader">
       <h1>Add Book</h1>
       <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
