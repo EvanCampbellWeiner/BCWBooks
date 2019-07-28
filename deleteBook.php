@@ -21,7 +21,9 @@
   }
   include "includes/library.php";
 $pdo=connectdb();
+//Base location for moving files
 $base_location = "../../www_data/";
+//Sql query using the id value passed by the delete button on viewInfo.php
  $sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
  $stmt = $pdo->prepare($sql);
 $stmt->execute([$_POST["deleteButton"]]);
@@ -45,11 +47,13 @@ $cover_path = $base_location. $cover_filename;
   <body>
     <header>
       <h1>Delete Book</h1>
+      <!-- navigation bar -->
       <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="account.php" id="accountButton">Account</a>
 
     </header>
+    <!-- Display for the book cover -->
     <div class="displayBox">
       <img
         src="<?php echo "$cover_path"; ?>"
@@ -57,9 +61,11 @@ $cover_path = $base_location. $cover_filename;
         height="640"
         width="400"
       />
+      <!-- Form/button that cancels and redirects to viewInfo.php and passes the current cover value -->
       <form id='cancelForm' action="viewInfo.php" method = "post">
       <button type="submit" name="coverButton" value = "<?php echo $_POST["deleteButton"]; ?>">Cancel
 </button>
+<!-- delete button and confirmation tick box -->
 </form>
       <div id="displayBoxInner">
         <form method = "post" action="bookShelf.php">
