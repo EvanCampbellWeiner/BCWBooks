@@ -49,10 +49,6 @@ $cover_path = $base_location. $cover_filename;
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="account.php" id="accountButton">Account</a>
 
-      <form id="searchForm">
-        <input type="text" name="searchField" value="Search" id="searchField" />
-        <input type="submit" value="Search" id="searchButton" />
-      </form>
     </header>
     <div class="displayBox">
       <img

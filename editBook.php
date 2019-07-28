@@ -21,14 +21,17 @@
 
  include "includes/library.php";
  $errors = array();
+ //The base location for moving files
  $new_location = "../../www_data/";
  $pdo=connectdb();
-
+ //The base location for moving files
  $base_location = "../../www_data/";
+ //Book info is pulled from database using id passed by viewInfo.php
   $sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
   $stmt = $pdo->prepare($sql);
  $stmt->execute([$_POST["editButton"]]);
  $book = $stmt->fetch(PDO::FETCH_ASSOC);
+ //Display variables are set
  $cover_filename = $book['cover_filename'];
  $cover_path = $base_location. $cover_filename;
  $title = $book['title'];
@@ -61,20 +64,18 @@
   <body>
     <header class="fullHeader" id="addBookHeader">
       <h1>Edit Book</h1>
+        <!-- nav buttons -->
       <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="account.php" id="accountButton">Account</a>
 
-      <form id="searchForm">
-        <input type="text" name="searchField" value="Search" id="searchField" />
-        <input type="submit" value="Search" id="searchButton" />
-      </form>
-    </header>
-
+  <!-- div for displaying page contents on different background color -->
     <div class="displayBox" id="addBookDisplayBox">
       <form enctype="multipart/form-data" class="enclosedForm" id="uploadForm" action = "viewInfo.php" method = "post">
         <div class="addBookFormDiv">
           <label for="bookTitle" class="addBookLabel">Title: </label>
+            <!-- Edit book forms are prepopulated with variables containing the book info -->
+              <!-- book title input-->
           <input
             type="text"
             value='<?php echo "$title"; ?>'
@@ -82,6 +83,7 @@
             id="bookTitle"
           />
         </div>
+        <!-- book author input-->
         <div class="addBookFormDiv">
           <label for="bookAuthor" class="addBookLabel">Author: </label>
           <input
@@ -92,10 +94,12 @@
             required
           />
         </div>
+        <!-- book description input-->
         <div class="addBookFormDiv" id="addBookFormTextareaDiv">
           <label class="addBookLabel">Description: </label>
           <textarea name="bookDescription" cols="100"> <?php echo "$description"; ?> </textarea>
         </div>
+        <!-- book tags input-->
         <div class="addBookFormDiv">
           <label for="bookTags" class="addBookLabel">Tags: </label>
           <input
@@ -106,6 +110,7 @@
             required
           />
         </div>
+        <!-- book publication date input-->
         <div class="addBookFormDiv">
           <label for="bookPublicationDate" class="addBookLabel">Publication Date: </label>
           <input
@@ -116,6 +121,7 @@
             required
           />
         </div>
+        <!-- submission button that passes the id of the book being edited -->
         <div class="addBookFormDiv">
           <button type="submit" name="editBook" value = "<?php echo $_POST["editButton"]; ?>">Submit</button>
         </div>

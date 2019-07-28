@@ -21,21 +21,27 @@
 
  include "includes/library.php";
  $errors = array();
+ //Base location for moving uploaded files
  $new_location = "../../www_data/";
  $pdo=connectdb();
+ //If the form has been submitted, execute database query using info
  if (isset($_POST['addBook'])) {
    if(isset($_FILES['ebookToUpload']) && isset($_FILES['ebookCover'])){
+     //The book file and the cover file are given unique id keys
      $ebookKey = uniqid();
      $coverKey = uniqid();
+     //The book and cover files are given destination variables
      $destination = $new_location. $ebookKey. urlencode(basename($_FILES["ebookToUpload"]["name"]));
     $cover_destination = $new_location. $coverKey. urlencode(basename($_FILES["ebookCover"]["name"]));
      $ebookFileName = $ebookKey. urlencode(basename($_FILES["ebookToUpload"]["name"]));
       $coverFileName = $coverKey. urlencode(basename($_FILES["ebookCover"]["name"]));
       $toExplode = $_FILES['ebookToUpload']['name'];
+      //The ebook file name is exploded and the result stored in a variable
   $file_ext = strtolower(end(explode('.', $toExplode)));
   $file_size = $_FILES['ebookToUpload']['size'];
   $cover_file_size = $_FILES['ebookCover']['size'];
 
+//The site will not accept files over 2MB in size
 if($file_size > 2000000) {
     $errors[] = 'Error: Ebook file size exceeds 2MB.';
 }
@@ -50,19 +56,20 @@ $extensions = array("mobi","pdf","epub");
        $errors[]="Invalid ebook file extension detected. Ebook file extensions must be .mobi, .epub or .pdf";
     }
 
-
+//If no errors were thrown the script executes a query to add an entry into the database using the form info
 if(empty($errors) ==true ){
    $sql = "INSERT INTO bcwBooks_bookData(filename, cover_filename, title, tags, author, description, publication_date, user) VALUES (?,?,?,?,?,?,?,?)";
    $stmt = $pdo->prepare($sql);
- $stmt->execute([$ebookFileName,$coverFileName, $_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $_POST["bookDescription"], /*'date2'*/$_POST["bookPublicationDate"], $_SESSION["user"]]);
-  //  $stmt->execute(['testFileName','testCoverFileName','testTitle','TestTags','testAuthor','testDescription','2019-07-06','testUser']);
+ $stmt->execute([$ebookFileName,$coverFileName, $_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $_POST["bookDescription"], $_POST["bookPublicationDate"], $_SESSION["user"]]);
     move_uploaded_file($_FILES["ebookToUpload"]["tmp_name"], $destination);
     move_uploaded_file($_FILES["ebookCover"]["tmp_name"], $cover_destination);
   }
   else{
+    //if the errors array is not empty then the errors are printed
     print_r($errors);
   }
 }
+//if both an ebook and cover file were not uploaded the program will throw an error
 else{
 $errors[]="Error: User must upload an ebook file and a cover file.";
   print_r($errors);
@@ -89,19 +96,17 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
   <body>
     <header class="fullHeader" id="addBookHeader">
       <h1>Add Book</h1>
+      <!-- Navigation bar -->
       <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="account.php" id="accountButton">Account</a>
 
-      <form id="searchForm">
-        <input type="text" name="searchField" value="Search" id="searchField" />
-        <input type="submit" value="Search" id="searchButton" />
-      </form>
     </header>
-
+<!-- display box for page elements -->
     <div class="displayBox" id="addBookDisplayBox">
       <form enctype="multipart/form-data" class="enclosedForm" id="uploadForm" action = "<?php echo $_SERVER['PHP_SELF'];?>" method = "post">
         <div class="addBookFormDiv">
+          <!-- input for ebook file -->
           <label for="ebookToUpload" class="addBookLabel"
             >Upload Ebook File(.mobi, .epub, .pdf)</label
           >

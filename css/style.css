@@ -27,6 +27,12 @@ main {
   width: 40em;
 }
 
+#sortButton {
+  height: 1.5em;
+  width: 3em;
+  font-size: 1em;
+}
+
 aside {
   margin: 2em;
   border-left: 1em black solid;
@@ -98,7 +104,7 @@ button {
   border-radius: 0em;
   border: none;
   padding: 0em;
-  margin: 0em;
+  margin: 0 auto;
   height: 240px;
   width: 140px;
 }
