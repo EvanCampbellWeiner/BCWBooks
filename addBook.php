@@ -21,16 +21,16 @@
 
  include "includes/library.php";
  $errors = array();
- //$timestamp = time();
-// $timestamp2 = time();
  $new_location = "../../www_data/";
  $pdo=connectdb();
  if (isset($_POST['addBook'])) {
    if(isset($_FILES['ebookToUpload']) && isset($_FILES['ebookCover'])){
-     $destination = $new_location. $timestamp. basename($_FILES["ebookToUpload"]["name"]);
-    $cover_destination = $new_location. $timestamp2. basename($_FILES["ebookCover"]["name"]);
-     $ebookFileName = uniqid(). basename($_FILES["ebookToUpload"]["name"]);
-      $coverFileName = uniqid(). basename($_FILES["ebookCover"]["name"]);
+     $ebookKey = uniqid();
+     $coverKey = uniqid();
+     $destination = $new_location. $ebookKey. urlencode(basename($_FILES["ebookToUpload"]["name"]));
+    $cover_destination = $new_location. $coverKey. urlencode(basename($_FILES["ebookCover"]["name"]));
+     $ebookFileName = $ebookKey. urlencode(basename($_FILES["ebookToUpload"]["name"]));
+      $coverFileName = $coverKey. urlencode(basename($_FILES["ebookCover"]["name"]));
       $toExplode = $_FILES['ebookToUpload']['name'];
   $file_ext = strtolower(end(explode('.', $toExplode)));
   $file_size = $_FILES['ebookToUpload']['size'];
@@ -54,7 +54,7 @@ $extensions = array("mobi","pdf","epub");
 if(empty($errors) ==true ){
    $sql = "INSERT INTO bcwBooks_bookData(filename, cover_filename, title, tags, author, description, publication_date, user) VALUES (?,?,?,?,?,?,?,?)";
    $stmt = $pdo->prepare($sql);
- $stmt->execute([$ebookFileName,$coverFileName, $_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $_POST["bookDescription"], /*'date2'*/$_POST["bookPublicationDate"], /*'$_SESSION['user']'*/'testUser3']);
+ $stmt->execute([$ebookFileName,$coverFileName, $_POST["bookTitle"], $_POST["bookTags"], $_POST["bookAuthor"], $_POST["bookDescription"], /*'date2'*/$_POST["bookPublicationDate"], $_SESSION["user"]]);
   //  $stmt->execute(['testFileName','testCoverFileName','testTitle','TestTags','testAuthor','testDescription','2019-07-06','testUser']);
     move_uploaded_file($_FILES["ebookToUpload"]["tmp_name"], $destination);
     move_uploaded_file($_FILES["ebookCover"]["tmp_name"], $cover_destination);
