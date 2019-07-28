@@ -110,7 +110,7 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
           <label for="ebookToUpload" class="addBookLabel"
             >Upload Ebook File(.mobi, .epub, .pdf)</label
           >
-          <input type="file" name="ebookToUpload" id="ebookToUpload" required/>
+          <input type="file" name="ebookToUpload" class ="required" id="ebookToUpload" required/>
         </div>
         <!-- input for ebook cover -->
         <div class="addBookFormDiv">
@@ -125,7 +125,7 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
             type="text"
             placeholder="Title"
             name="bookTitle"
-            id="bookTitle"
+            id="bookTitle" class ="required" 
           />
         </div>
         <!-- input for ebook author -->
@@ -172,5 +172,16 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
         </div>
       </form>
     </div>
+    <!-- include scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- fallback for jQuery if CDN is unavailable -->
+    <script>
+      window.jQuery ||
+        document.write('<script src="scripts/jquery.js"><\/script>');
+    </script>
+
+    <!-- script.js include - -->
+    <script src="scripts/script.js"></script>
   </body>
 </html>

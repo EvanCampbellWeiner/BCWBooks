@@ -122,5 +122,17 @@ $pubDate = $book['publication_date'];
     </form>
       </nav>
     </div>
+
+    <!-- include scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- fallback for jQuery if CDN is unavailable -->
+    <script>
+      window.jQuery ||
+        document.write('<script src="scripts/jquery.js"><\/script>');
+    </script>
+
+    <!-- script.js include - -->
+    <script src="scripts/script.js"></script>
   </body>
 </html>
