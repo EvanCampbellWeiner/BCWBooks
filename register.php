@@ -106,6 +106,14 @@
         <?php endif;?>
         <div class = "myPassword">
           <label for="password">Password:<br  /></label>
+          <noscript><input
+            type="password"
+            name="password2"
+            class = "required"
+            id="password2"
+            placeholder="************"
+            required
+          /></noscript>
         </div>
         <div>
           <label for="password2">Re-type Password:</label>

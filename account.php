@@ -26,8 +26,8 @@ $pdo = connectdb();
   }
   //Otherwise set the email to the user session
   //$email = $_SESSION['user'];
-  $sessionEmail = filter_var($_SESSION['user'], FILTER_SANITIZE_EMAIL);
-  $sessionEmail = filter_var($_SESSION['user'], FILTER_VALIDATE_EMAIL);
+  $email = filter_var($_SESSION['user'], FILTER_SANITIZE_EMAIL);
+  $email = filter_var($_SESSION['user'], FILTER_VALIDATE_EMAIL);
 
   //If they clicked the update book button
   if(isset($_POST['update']))
@@ -128,7 +128,16 @@ $pdo = connectdb();
       <!-- Header for change email form -->
         <h3>Change Email</h2>
         <!-- Div to show the Current Email -->
-        <div>Previous Email:<?php echo $email ?></div>
+        <div>
+          <label for="email">Previous Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value = <?php echo $email ?>
+            class = "required"
+            required/>
+        </div>
         <!-- Div to type in new email -->
         <div>
           <label for="email">New Email:</label>
