@@ -102,7 +102,7 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
       <a href="account.php" id="accountButton">Account</a>
 
     </header>
-<!-- display box for page elements -->
+<!-- display box for page elements-->
     <div class="displayBox" id="addBookDisplayBox">
       <form enctype="multipart/form-data" class="enclosedForm" id="uploadForm" action = "<?php echo $_SERVER['PHP_SELF'];?>" method = "post">
         <div class="addBookFormDiv">
@@ -125,7 +125,7 @@ $errors[]="Error: User must upload an ebook file and a cover file.";
             type="text"
             placeholder="Title"
             name="bookTitle"
-            id="bookTitle" class ="required" 
+            id="bookTitle" class ="required"
           />
         </div>
         <!-- input for ebook author -->
