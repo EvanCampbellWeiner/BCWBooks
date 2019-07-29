@@ -33,21 +33,17 @@ $pdo = connectdb();
   if(isset($_POST['update']))
   {
     //if the email is not empty
-    if($email!="")
+    if($_POST['email']!="")
     {
       //set email to the post array
       $newemail = $_POST['email'];
       //set password to post array
       $psw = $_POST['password'];
-      //Santize email
-      $newemail = filter_var($email, FILTER_SANITIZE_EMAIL);
-      //Validate email
-      $newemail = filter_var($email, FILTER_VALIDATE_EMAIL);
 
       //Find all of the information from the database on the email
       $sql = "select * from bcwBooks_users where username_email =?";
       $statement = $pdo -> prepare($sql);
-      $statement -> execute([$email]);
+      $statement -> execute([$_POST['previousEmail']]);
       //Set data to result
       $result = $statement->fetch();
 
@@ -71,7 +67,6 @@ $pdo = connectdb();
             $statement = $pdo -> prepare($sql);
             $statement -> execute([$newemail, $result['id']]);
             $_SESSION['user'] = $newemail;
-            $email = $newemail;
             //reload the account page
             header("Location: account.php");
             exit();
@@ -127,13 +122,20 @@ $pdo = connectdb();
       <form id="updateAccount" action="account.php" method="post">
       <!-- Header for change email form -->
         <h3>Change Email</h2>
+            <?php
+              if(isset($passerror)):
+             ?>
+             <div>
+               <?php echo $passerror; ?>
+             </div>
+           <?php endif; ?>
         <!-- Div to show the Current Email -->
         <div>
           <label for="email">Previous Email:</label>
           <input
             type="email"
-            name="email"
-            id="previousemail"
+            name="previousEmail"
+            id="previousEmail"
             value = <?php echo $email ?>
             class = "required"
             required/>
