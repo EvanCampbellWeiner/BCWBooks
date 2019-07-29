@@ -81,7 +81,7 @@
             value='<?php echo "$title"; ?>'
             name="bookTitle"
             id="bookTitle"
-             class ="required" 
+             class ="required"
           />
         </div>
         <!-- book author input-->
