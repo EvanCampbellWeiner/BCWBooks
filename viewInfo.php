@@ -78,6 +78,7 @@ $pubDate = $book['publication_date'];
       <a href="index.php" id="homeButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="account.php" id="accountButton">Account</a>
+      <a href="logout.php" id="loginButton">Logout</a>
 
     </header>
 

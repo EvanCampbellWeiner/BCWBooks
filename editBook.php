@@ -68,6 +68,7 @@
       <a href="index.php" id="indexButton">Home</a>
       <a href="bookShelf.php" id="bookShelfButton">BookShelf</a>
       <a href="account.php" id="accountButton">Account</a>
+      <a href="logout.php" id="loginButton">Logout</a>
 </header>
   <!-- div for displaying page contents on different background color -->
     <div class="displayBox" id="addBookDisplayBox">
