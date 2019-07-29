@@ -36,18 +36,18 @@ $pdo = connectdb();
     if($email!="")
     {
       //set email to the post array
-      $email = $_POST['email'];
+      $newemail = $_POST['email'];
       //set password to post array
       $psw = $_POST['password'];
       //Santize email
-      $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+      $newemail = filter_var($email, FILTER_SANITIZE_EMAIL);
       //Validate email
-      $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+      $newemail = filter_var($email, FILTER_VALIDATE_EMAIL);
 
       //Find all of the information from the database on the email
       $sql = "select * from bcwBooks_users where username_email =?";
       $statement = $pdo -> prepare($sql);
-      $statement -> execute($sessionEmail);
+      $statement -> execute([$email]);
       //Set data to result
       $result = $statement->fetch();
 
@@ -69,9 +69,9 @@ $pdo = connectdb();
             //Update the databases email
             $sql = "update bcwBooks_users set username_email= ? where id =?";
             $statement = $pdo -> prepare($sql);
-            $statement -> execute([$email, $result['id']]);
-            $_SESSION['user'] = $email;
-
+            $statement -> execute([$newemail, $result['id']]);
+            $_SESSION['user'] = $newemail;
+            $email = $newemail;
             //reload the account page
             header("Location: account.php");
             exit();
@@ -133,7 +133,7 @@ $pdo = connectdb();
           <input
             type="email"
             name="email"
-            id="email"
+            id="previousemail"
             value = <?php echo $email ?>
             class = "required"
             required/>
@@ -145,7 +145,7 @@ $pdo = connectdb();
             type="email"
             name="email"
             id="email"
-            value = <?php echo $email ?>
+            placeholder = <?php echo $email ?>
             class = "required"
             required/>
         </div>
