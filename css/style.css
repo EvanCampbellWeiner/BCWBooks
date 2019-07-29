@@ -3,7 +3,7 @@
 Name: style.css
 Programmer Name: Alan-Michael Bradshaw and Evan Campbell-Weiner
 
-Description: used in the BCWBooks web application on all pages. 
+Description: used in the BCWBooks web application on all pages.
 @charset "UTF-8";
 
 font styling for header, paragraph and nav elements*/
@@ -120,16 +120,6 @@ button {
   width: 140px;
 }
 
-/*
-#forgotpassword { //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  width: auto;
-  font-size: 1em;
-  color: blue;
-  text-decoration: underline;
-  margin: 1em;
-
-}
-  Styles the */
 
 /*Styles the rememeber me checkbox on the login page*/
 input#remember {
@@ -282,16 +272,6 @@ ul {
   display: inline-block;
 }
 
-/*
-.pretendBookGreen {
-  height: 30em;
-  width: 5em;
-  margin: 1em;
-  background-color: green;
-  border: 0.2em solid black;
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-}
-*/
 /*Styles all links inside nav elements to match design theme*/
 nav a {
   padding: 0.05em;
@@ -304,18 +284,7 @@ nav a {
   background-color: #a36a36;
 }
 
-/*
-.shelfButton {
-  padding: 0.05em;
-  text-decoration: none;
-  color: black;
-  border-style: solid;
-  border-width: 0.1em;
-  border-radius: 0.3em;
-  border-color: black;
-  background-color: #a36a36;
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-}*/
+
 
 /*Styles the div that holds page content in add, edit and delete book pages*/
 .displayBox {

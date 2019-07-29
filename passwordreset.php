@@ -46,11 +46,6 @@
       {
         echo("<p>" . $mail->getMessage() . "</p>");
       }
-      //else tell them message successfully sent
-    else
-      {
-      echo("<p>Message successfully sent!</p>");
-      }
    }
 
    //if the user has entered a code then check if its equal to the right code
