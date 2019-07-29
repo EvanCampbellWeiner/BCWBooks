@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*font styling for header, paragraph and nav elements*/
 h1,
 h2,
 h3,
@@ -7,12 +8,12 @@ p,
 nav {
   font-family: "Century", "Georgia", serif;
 }
-
+/*Font and background styling for body elements*/
 body {
   background-color: #49220b;
   font-family: "Century", "Georgia", serif;
 }
-
+/*sets background color, size and positioning for main elements*/
 main {
   background-color: #d89f6a;
   padding: 1em;
@@ -21,18 +22,20 @@ main {
   width: 40em;
 }
 
+/*styles main elements withing content on the index page*/
 #content main {
   background-color: #d89f6a;
   padding: 1em;
   width: 40em;
 }
-
+/*stlyes the sorting options select button on the bookshelf*/
 #sortButton {
   height: 1.5em;
   width: 3em;
   font-size: 1em;
 }
 
+/*styles all aside elements with a border and spacing*/
 aside {
   margin: 2em;
   border-left: 1em black solid;
@@ -46,6 +49,7 @@ aside {
   align-items: center;
 }
 
+/*Styles all forms withing main elements to match design theme and to function as a flex box*/
 main form {
   border: 0.2em solid black;
   display: flex;
@@ -56,7 +60,7 @@ main form {
   background-color: #d89f6a;
   align-items: center;
 }
-
+/*Styles all div elements within forms to match design theme*/
 form div {
   padding: 1em;
   margin: 1em;
@@ -68,19 +72,20 @@ form div {
   background-color: #a36a36;
 }
 
+/*Styles the background color of the password input field on the register page*/
 form div.myPassword {
   background-color: #a36a36;
 }
-
+/*Styles the background color of the password input field on the register page*/
 form div.myPassword input {
   background-color: white;
   width: 6.5em;
 }
-
+/*Styles all buttons withing forms to have margins*/
 form button {
   margin: 0.5em;
 }
-
+/*Styles the size, color, border and font of all button elements*/
 button {
   background-color: #a36a36;
   border-radius: 0.7em;
@@ -93,12 +98,13 @@ button {
   font-family: "Century", "Georgia", serif;
 }
 
+/*Styles the forms containing the book covers on bookShelf.php*/
 .coverForm {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-
+/*Styles the buttons containing the cover images in bookShelf.php*/
 .coverButton {
   border-radius: 0em;
   border: none;
@@ -108,20 +114,24 @@ button {
   width: 140px;
 }
 
-#forgotpassword {
+/*
+#forgotpassword { //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   width: auto;
   font-size: 1em;
   color: blue;
   text-decoration: underline;
   margin: 1em;
-}
 
+}
+  Styles the */
+
+/*Styles the rememeber me checkbox on the login page*/
 input#remember {
   align-self: flex-end;
   width: 1em;
   height: 1em;
 }
-
+/*Styles all header elements to match the design theme and to space elements within correctly using flex*/
 header {
   background-color: #d89f6a;
   height: 5em;
@@ -131,14 +141,14 @@ header {
   align-items: center;
   padding-left: 7em;
 }
-
+/*Styles h1 elements in headers to line up properlyz*/
 header h1 {
   order: 3;
   font-size: 3.5em;
   text-align: center;
   padding-top: 0.2em;
 }
-
+/*Styles all link elements in headers to match the design theme, size correctly and display in the right spot*/
 header a {
   background-color: #a36a36;
   border-radius: 0.7em;
@@ -157,25 +167,25 @@ header a {
   padding-right: 0.3em;
   font-family: "Century", "Georgia", serif;
 }
-
+/*Styles the home button with an order value*/
 #indexButton {
   order: 1;
 }
-
+/*Styles the bookshelf button with an order value*/
 #bookShelfButton {
   order: 2;
   /*  left: 12em; */
 }
-
+/*Styles the account button with an order value*/
 #accountButton {
   order: 4;
   /*  left: 29em; */
 }
-
+/*Styles the login button with an order value*/
 #loginButton {
   order: 6;
 }
-
+/*Styles the search button with an order value*/
 #searchButton {
   background-color: #a36a36;
   border-radius: 0.7em;
@@ -188,10 +198,11 @@ header a {
   font-family: "Century", "Georgia", serif;
 }
 
+/*Styles the form found in all headers with an order value*/
 header form {
   order: 5;
 }
-
+/*Styles the text field for searching to match  the design theme*/
 #searchField {
   font-size: 1.2em;
   font-style: italic;
@@ -199,7 +210,7 @@ header form {
   background-color: #a36a36;
   border-color: #49220b;
 }
-
+/*Styles the div containing the body elements in bookShelf.php*/
 #bodyDiv {
   height: 2em;
   display: flex;
@@ -208,12 +219,13 @@ header form {
   justify-content: flex-start;
   margin: 1em;
 }
-
+/*Styles the font size and color of paragraph elements in the #bodyDiv*/
 #bodyDiv p {
   font-size: 1.45em;
   background-color: #a36a36;
 }
 
+/*Styles all select elements to match design theme*/
 select {
   background-color: #d89f6a;
   font-size: 1.3em;
@@ -221,6 +233,7 @@ select {
   border-width: 0.12em;
 }
 
+/*Styles the padding, display and size of the div containg the bookshelves in bookShelf.php*/
 #shelfDiv {
   padding-top: 5em;
   height: 43em;
@@ -230,7 +243,7 @@ select {
   justify-content: space-around;
   align-items: center;
 }
-
+/*Styles the outer shelf layer to match the design theme and to display book cover's correctly with flexbox*/
 .shelfOuter {
   background-color: #a36a36;
   border-style: solid;
@@ -242,7 +255,7 @@ select {
   align-items: flex-start;
   justify-content: flex-end;
 }
-
+/*Styles the inner shelf layer with suze, color and a border*/
 .shelfInner {
   background-color: #d89f6a;
   border-style: solid;
@@ -250,7 +263,7 @@ select {
   height: 1em;
   width: 60em;
 }
-
+/*Styles the nav element withing the #shelfDiv*/
 #shelfDiv nav {
   align-self: flex-end;
   display: flex;
@@ -258,21 +271,22 @@ select {
   flex-direction: row;
 }
 
-#addBook {
-}
-
+/*Styles all unordered list elements to display inline-block*/
 ul {
   display: inline-block;
 }
 
+/*
 .pretendBookGreen {
   height: 30em;
   width: 5em;
   margin: 1em;
   background-color: green;
   border: 0.2em solid black;
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
-
+*/
+/*Styles all links inside nav elements to match design theme*/
 nav a {
   padding: 0.05em;
   text-decoration: none;
@@ -284,6 +298,7 @@ nav a {
   background-color: #a36a36;
 }
 
+/*
 .shelfButton {
   padding: 0.05em;
   text-decoration: none;
@@ -293,8 +308,10 @@ nav a {
   border-radius: 0.3em;
   border-color: black;
   background-color: #a36a36;
-}
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}*/
 
+/*Styles the div that holds page content in add, edit and delete book pages*/
 .displayBox {
   display: flex;
   flex-direction: column;
@@ -302,16 +319,18 @@ nav a {
   justify-content: space-around;
   height: 55em;
   width: 42%;
-  background-color: #d89f6a;
+  /*background-color: #d89f6a;*/
+  background-color: #49220b;
   margin: auto;
 }
 
+/*styles the display box for addbook content*/
 #addBookDisplayBox {
   height: 60em;
   width: 50%;
   justify-content: space-around;
 }
-
+/*Styles the submission button on add book*/
 #addBookDisplayBox input[type="submit"] {
   background-color: #d89f6a;
   border-radius: 0.7em;
@@ -327,27 +346,28 @@ nav a {
   padding-top: 0.3em;
   font-family: "Century", "Georgia", serif;
 }
-
+/*Styles the h2 element in the addBook page with a font family and size*/
 #addBookDisplayBox h2 {
   font-family: "Century", "Georgia", serif;
   font-size: 3.5em;
 }
-
+/*Styles the h3 element in the addBook page with a font family and size*/
 #addBookDisplayBox h3 {
   font-family: "Century", "Georgia", serif;
   font-size: 2em;
 }
-
+/*Styles paragraph elements in the addBook page with a font family and size*/
 #addBookDisplayBox p {
   font-family: "Century", "Georgia", serif;
   font-size: 1em;
 }
-
+/*Styles the text elements in the addBook page with a font family and size*/
 #addBookDisplayBox input[type="text"] {
   background-color: #d89f6a;
   color: black;
 }
 
+/*Styles the label elements in the addBook page with a font family and size*/
 .addBookLabel {
   width: 8em;
   height: 2em;
@@ -358,7 +378,7 @@ nav a {
   padding-top: 0.3em;
   font-family: "Century", "Georgia", serif;
 }
-
+/*Styles the form for adding books in addBook.php*/
 .enclosedForm {
   background-color: #a36a36;
   border-radius: 0.7em;
@@ -372,7 +392,7 @@ nav a {
   justify-content: space-around;
   align-items: center;
 }
-
+/*Styles the div containing the form for adding books*/
 .addBookFormDiv {
   padding: 0em;
   margin: 0em;
@@ -381,31 +401,31 @@ nav a {
   border-style: none;
   text-align: center;
 }
-
+/*styes the div containing the textarea in the form for adding books*/
 #addBookFormTextareaDiv {
   display: flex;
   flex-direction: column;
   align-content: center;
 }
-
+/*Styles the textarea in addBook.php*/
 #addBookFormTextareaDiv textarea {
   background-color: #d89f6a;
   color: black;
 }
-
+/*Styles the form for uploading books to have padding*/
 #uploadForm {
   padding: 0.5em;
 }
-
+/*Styles the display container in deleteBook.php*/
 #displayBoxInner {
   display: flex;
 }
-
+/*Styes the buttons on the delete page*/
 #displayBoxInner button {
   background-color: maroon;
   font-weight: bold;
 }
-
+/*Styles the links inside display boxes*/
 .displayBox a {
   background-color: #a36a36;
   border-radius: 0.7em;
@@ -421,14 +441,14 @@ nav a {
   padding-top: 0.3em;
   font-family: "Century", "Georgia", serif;
 }
-
+/*Styles the div containing the edit and delete icons on the viewInfo page*/
 #iconDiv {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-
+/*Styles the links in the div containing the edit and delete icons on the viewInfo page*/
 #iconDiv a {
   padding: 0em;
   padding-top: 0.5em;
@@ -442,6 +462,7 @@ nav a {
   border-color: black;
   background-color: #a36a36;
 }
+/*Styles the navigation buttons for the bookshelf*/
 .shelfButtons {
   background-color: #a36a36;
   border-style: solid;
@@ -453,21 +474,15 @@ nav a {
   font-size: 0.9em;
 }
 
-#shelfNavForm {
-}
-
 /*Used for script.js form validation*/
-.empty{
-  background-color:#fa5454;
+.empty {
+  background-color: #fa5454;
 }
-
+/*Styles all h2 elements to have a font size*/
 h2 {
   font-size: 8em;
 }
-
+/*Styles all h3 elements to have a font size*/
 h3 {
   font-size: 3em;
-}
-
-footer {
 }
