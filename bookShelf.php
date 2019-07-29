@@ -85,6 +85,7 @@ $bookTitle = array();
 $cover_path = array();
 for($i = $increment; $i<15; $i++)
 {
+  if(isset($idArray[$i])){
   $sql = "SELECT * FROM bcwBooks_bookData WHERE id=?";
   $stmt = $pdo->prepare($sql);
   $stmt->execute([$idArray[$i]]);
@@ -94,6 +95,7 @@ for($i = $increment; $i<15; $i++)
   $bookID[$i] = $book['id'];
   $bookTitle[$i] = $book['title'];
   $cover_path[$i] = $base_location.$cover_filename[$i];
+}
 }
 
 
@@ -150,15 +152,15 @@ for($i = $increment; $i<15; $i++)
         <div class="shelfOuter">
           <form id='coverForm' action="viewInfo.php" method = "post" class = "coverForm">
             <?php
-            for($i=$increment; $i<5; $i++):
-              if(isset($bookID[$i])):
+            for($i=$increment; $i<$increment+5; $i++):
+              if(isset($bookID[$i])){
               echo"
         <button type='submit' name='coverButton' value = "; ?> <?php echo $bookID[$i]; ?> <?php echo" class='coverButton'><img
                   src= ";?> <?php echo ($cover_path[$i]); ?><?php echo" alt= "; ?> <?php echo $bookTitle[$i]; ?> <?php echo "
                   height='240'
                   width='140'/>
 </button>
-"; endif; endfor;
+"; } endfor;
             ?>
           </form>
         <div class = "shelfInner"></div>
@@ -166,7 +168,7 @@ for($i = $increment; $i<15; $i++)
         <div class="shelfOuter">
             <form id='coverForm' action="viewInfo.php" method = "post" class = "coverForm">
             <?php
-            for($i=$increment+5; $i<10; $i++):
+            for($i=$increment+5; $i<$increment+10; $i++):
               if(isset($bookID[$i])):
               echo"
         <button type='submit' name='coverButton' value = "; ?> <?php echo $bookID[$i]; ?> <?php echo" class='coverButton'><img
@@ -182,15 +184,16 @@ for($i = $increment; $i<15; $i++)
         <div class="shelfOuter">
             <form id='coverForm' action="viewInfo.php" method = "post" class = "coverForm">
             <?php
-            for($i=$increment+10; $i<15; $i++):
-              if(isset($bookID[$i])):
-              echo"
+            for($i=$increment+10; $i<$increment+15; $i++):
+              if(isset($bookID[$i])){
+                            echo"
         <button type='submit' name='coverButton' value = "; ?> <?php echo $bookID[$i]; ?> <?php echo" class='coverButton'><img
                   src= ";?> <?php echo ($cover_path[$i]); ?><?php echo" alt= "; ?> <?php echo $bookTitle[$i]; ?> <?php echo "
                   height='240'
                   width='140'/>
 </button>
-"; endif; endfor;
+";}
+endfor;
             ?>
 
           </form>
