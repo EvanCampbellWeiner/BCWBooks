@@ -1,4 +1,10 @@
 /*
+  Name: password_strength_lightweight.js
+  Taken From: Maxim Kuryan
+  Link to Github:https://github.com/mkurayan/password_strength
+
+  Used on: register.php
+  Description (from Maxim Kuryan):
 This is a simple implementation of the password_strength.js plugin, that does not use jQuery Widget Factory.
 If you a going to extend plugin with addition functionality it will be better to use password_strength.js
 because jQuery Widget Factory allows to build complex, stateful plugins based on object-oriented principles.
@@ -6,7 +12,6 @@ because jQuery Widget Factory allows to build complex, stateful plugins based on
 Dependencies:
 1. jQuery
 */
-
 ;(function ( $, window, document, undefined ) {
     var upperCase = new RegExp('[A-Z]');
     var lowerCase = new RegExp('[a-z]');
