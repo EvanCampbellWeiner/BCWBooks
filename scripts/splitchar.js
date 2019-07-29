@@ -1,10 +1,12 @@
 /**
- * Splitchar.js
+ * Splitchar.js 
  * @author emisfera - Razvan B.
  Email: balosinrazvan@yahoo.com
 GitHub: https://github.com/razvanbalosin
 Work: FrontEnd Developer
 https://github.com/razvanbalosin/Splitchar.js
+
+Description on BCW Books: styles the BCW Books title on the homepage to be half grey, half black.
  */
 
 
